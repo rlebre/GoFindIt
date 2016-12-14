@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var tableView: UITableView!
     
     var datasource = ["Event 1", "Event 2", "Event 3", "Event 4", "Event 5", "Event 6"];
@@ -35,14 +35,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(datasource[indexPath.row])
         performSegue(withIdentifier: "segueViewEvent", sender: datasource[indexPath.row])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let guest = segue.destination as! ViewEventViewController
-        
-        guest.mtitle = sender as! String
+        if segue.identifier == "segueViewEvent"{
+            let guest = segue.destination as! ViewEventViewController
+            
+            guest.mtitle = sender as! String
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
@@ -51,5 +52,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
+    
+    
+    
+    @IBAction func cancelToEventViewController(segue:UIStoryboardSegue) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveEventDetail(segue:UIStoryboardSegue) {
+        
+    }
+
 }
 

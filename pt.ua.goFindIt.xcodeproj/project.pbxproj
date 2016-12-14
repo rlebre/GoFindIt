@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3BD3C721E0208150071DC8A /* LocationPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD3C711E0208150071DC8A /* LocationPickerViewController.swift */; };
 		B3BD6E0F1E00066B0023C030 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD6E0E1E00066B0023C030 /* AppDelegate.swift */; };
 		B3BD6E111E00066B0023C030 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD6E101E00066B0023C030 /* ViewController.swift */; };
 		B3BD6E141E00066B0023C030 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3BD6E121E00066B0023C030 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 		B3BD6E241E00066B0023C030 /* pt_ua_goFindItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD6E231E00066B0023C030 /* pt_ua_goFindItTests.swift */; };
 		B3BD6E2F1E00066B0023C030 /* pt_ua_goFindItUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD6E2E1E00066B0023C030 /* pt_ua_goFindItUITests.swift */; };
 		B3BD6E3D1E0010690023C030 /* ViewEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BD6E3C1E0010690023C030 /* ViewEventViewController.swift */; };
+		B3BE8F181E019A6300B41E11 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BE8F171E019A6300B41E11 /* AddEventViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B3BD3C711E0208150071DC8A /* LocationPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationPickerViewController.swift; sourceTree = "<group>"; };
 		B3BD6E0B1E00066B0023C030 /* pt.ua.goFindIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pt.ua.goFindIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3BD6E0E1E00066B0023C030 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3BD6E101E00066B0023C030 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		B3BD6E2E1E00066B0023C030 /* pt_ua_goFindItUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pt_ua_goFindItUITests.swift; sourceTree = "<group>"; };
 		B3BD6E301E00066B0023C030 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B3BD6E3C1E0010690023C030 /* ViewEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewEventViewController.swift; sourceTree = "<group>"; };
+		B3BE8F171E019A6300B41E11 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,9 @@
 				B3BD6E0E1E00066B0023C030 /* AppDelegate.swift */,
 				B3BD6E101E00066B0023C030 /* ViewController.swift */,
 				B3BD6E121E00066B0023C030 /* Main.storyboard */,
+				B3BD3C711E0208150071DC8A /* LocationPickerViewController.swift */,
 				B3BD6E3C1E0010690023C030 /* ViewEventViewController.swift */,
+				B3BE8F171E019A6300B41E11 /* AddEventViewController.swift */,
 				B3BD6E151E00066B0023C030 /* Assets.xcassets */,
 				B3BD6E171E00066B0023C030 /* LaunchScreen.storyboard */,
 				B3BD6E1A1E00066B0023C030 /* Info.plist */,
@@ -191,7 +197,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Rui Lebre";
 				TargetAttributes = {
 					B3BD6E0A1E00066B0023C030 = {
@@ -266,7 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B3BD6E111E00066B0023C030 /* ViewController.swift in Sources */,
+				B3BE8F181E019A6300B41E11 /* AddEventViewController.swift in Sources */,
 				B3BD6E3D1E0010690023C030 /* ViewEventViewController.swift in Sources */,
+				B3BD3C721E0208150071DC8A /* LocationPickerViewController.swift in Sources */,
 				B3BD6E0F1E00066B0023C030 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -340,6 +348,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -389,6 +398,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -416,8 +426,13 @@
 		B3BD6E341E00066B0023C030 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = pt.ua.goFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pt.ruilebre.pt-ua-goFindIt";
@@ -429,8 +444,13 @@
 		B3BD6E351E00066B0023C030 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = pt.ua.goFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pt.ruilebre.pt-ua-goFindIt";
@@ -516,6 +536,7 @@
 				B3BD6E351E00066B0023C030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3BD6E361E00066B0023C030 /* Build configuration list for PBXNativeTarget "pt.ua.goFindItTests" */ = {
 			isa = XCConfigurationList;
@@ -524,6 +545,7 @@
 				B3BD6E381E00066B0023C030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B3BD6E391E00066B0023C030 /* Build configuration list for PBXNativeTarget "pt.ua.goFindItUITests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +554,7 @@
 				B3BD6E3B1E00066B0023C030 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
