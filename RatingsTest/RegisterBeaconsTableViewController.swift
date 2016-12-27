@@ -14,9 +14,9 @@ class RegisterBeaconsTableViewController: UITableViewController {
     
     @IBOutlet var tableVIew: UITableView!
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "New ID", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Beacon", message: "Enter ID", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.text = "Enter ID"
+            textField.text = ""
         }
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
@@ -40,13 +40,7 @@ class RegisterBeaconsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCell", for: indexPath) 
-            
-            let beacon = beacons[indexPath.row] as String
-            cell.textLabel?.text = beacon
-            return cell
-    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -54,6 +48,21 @@ class RegisterBeaconsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return beacons.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCell", for: indexPath)
+        
+        let beacon = beacons[indexPath.row] as String
+        cell.textLabel?.text = beacon
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            beacons.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
