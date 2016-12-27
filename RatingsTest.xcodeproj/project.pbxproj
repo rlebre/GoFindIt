@@ -18,6 +18,7 @@
 		B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3631E0F382E00033242 /* EventCell.swift */; };
 		B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3671E0F418C00033242 /* AddEventViewController.swift */; };
 		B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */; };
+		B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		B3EEE3631E0F382E00033242 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = ../EventCell.swift; sourceTree = "<group>"; };
 		B3EEE3671E0F418C00033242 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
 		B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsTableViewController.swift; sourceTree = "<group>"; };
+		B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 		B3A63CD41E0945840048537E /* RatingsTest */ = {
 			isa = PBXGroup;
 			children = (
+				B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */,
 				B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */,
 				B3EEE3671E0F418C00033242 /* AddEventViewController.swift */,
 				B3A63CD51E0945840048537E /* AppDelegate.swift */,
@@ -160,6 +163,7 @@
 				B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */,
 				B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */,
 				B3EEE3601E0F102400033242 /* SampleData.swift in Sources */,
+				B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */,
 				B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */,
 				B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */,
 				B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */,

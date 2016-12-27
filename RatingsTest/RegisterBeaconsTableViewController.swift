@@ -21,8 +21,12 @@ class RegisterBeaconsTableViewController: UITableViewController {
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
-            self.beacons.append((textField?.text)!)
-            self.tableVIew.reloadData()
+            let text = (textField?.text)!
+            
+            if text != "" {
+                self.beacons.append((textField?.text)!)
+                self.tableVIew.reloadData()
+            }
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -68,6 +72,13 @@ class RegisterBeaconsTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SaveBeaconsList" {
             print("blablabla")
+        }
+    }
+
+    @IBAction func unwindToRegisterBeacons(segue: UIStoryboardSegue) {
+        if let qrScanner = segue.source as? QRScannerController {
+                beacons.append(qrScanner.qr)
+                tableVIew.reloadData()
         }
     }
 

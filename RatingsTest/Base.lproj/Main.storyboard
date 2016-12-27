@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -246,11 +247,18 @@
                                 <segue destination="ZEW-PH-lnN" kind="unwind" identifier="SaveBeaconsList" unwindAction="saveBeaconsWithSegue:" id="tto-wL-YrN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KMu-5V-iuK">
-                            <connections>
-                                <action selector="addButtonPressed:" destination="Nht-lP-yQJ" id="Xby-AR-cZW"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="KMu-5V-iuK">
+                                <connections>
+                                    <action selector="addButtonPressed:" destination="Nht-lP-yQJ" id="Xby-AR-cZW"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="camera" id="4cc-Xh-Cuu">
+                                <connections>
+                                    <segue destination="fIq-j3-RRI" kind="presentation" identifier="" id="V9j-zW-zIo"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="tableVIew" destination="dRU-0c-sCB" id="QC4-zh-LMF"/>
@@ -315,5 +323,66 @@
             </objects>
             <point key="canvasLocation" x="4333" y="130"/>
         </scene>
+        <!--Scanner Controller-->
+        <scene sceneID="0y4-Dj-Ckh">
+            <objects>
+                <viewController id="fIq-j3-RRI" customClass="QRScannerController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dBh-mw-xpY"/>
+                        <viewControllerLayoutGuide type="bottom" id="I0X-7P-QK2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rwa-4G-DKq">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.80000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kh3-p5-oQd">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g89-p2-l8H">
+                                        <rect key="frame" x="138" y="23" width="45" height="24"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p33-4i-nsL">
+                                        <rect key="frame" x="15" y="24" width="18" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="18" id="JxT-e3-qvP"/>
+                                        </constraints>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <state key="normal" image="cross"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="g89-p2-l8H" secondAttribute="bottom" constant="8" id="GXA-D2-Y5l"/>
+                                    <constraint firstAttribute="height" constant="55" id="bIz-uJ-lTS"/>
+                                    <constraint firstItem="p33-4i-nsL" firstAttribute="leading" secondItem="Kh3-p5-oQd" secondAttribute="leading" constant="15" id="cJS-Lj-sdg"/>
+                                    <constraint firstItem="g89-p2-l8H" firstAttribute="centerX" secondItem="Kh3-p5-oQd" secondAttribute="centerX" id="cz7-dl-brR"/>
+                                    <constraint firstAttribute="bottom" secondItem="p33-4i-nsL" secondAttribute="bottom" constant="13" id="dL4-j8-xzl"/>
+                                    <constraint firstItem="p33-4i-nsL" firstAttribute="top" secondItem="Kh3-p5-oQd" secondAttribute="top" constant="24" id="tIn-ij-kLg"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kh3-p5-oQd" firstAttribute="top" secondItem="Rwa-4G-DKq" secondAttribute="top" id="73i-2z-VZ2"/>
+                            <constraint firstItem="Kh3-p5-oQd" firstAttribute="leading" secondItem="Rwa-4G-DKq" secondAttribute="leading" id="DCQ-ex-Ls0"/>
+                            <constraint firstAttribute="trailing" secondItem="Kh3-p5-oQd" secondAttribute="trailing" id="lvd-FF-r1C"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="topbar" destination="Kh3-p5-oQd" id="uC5-wZ-tRx"/>
+                        <segue destination="G5c-Xd-gkb" kind="unwind" identifier="QRReaderDone" unwindAction="unwindToRegisterBeaconsWithSegue:" id="tuI-bE-IDc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-1e-pBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="G5c-Xd-gkb" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5903" y="-427"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="cross" width="40" height="40"/>
+    </resources>
 </document>
