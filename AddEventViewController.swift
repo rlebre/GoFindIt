@@ -37,6 +37,12 @@ class AddEventViewController: UITableViewController {
             
             event = Event(name: nameTextField.text!, location: "", completedBeacons: 0, addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
         }
+        
+        if segue.identifier == "goToRegisterBeacons" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! RegisterBeaconsTableViewController
+            dest.beacons = addedBeacons
+        }
     }
     
     @IBAction func saveBeacons(segue:UIStoryboardSegue) {

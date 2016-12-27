@@ -68,12 +68,6 @@ class RegisterBeaconsTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SaveBeaconsList" {
-            print("blablabla")
-        }
-    }
 
     @IBAction func unwindToRegisterBeacons(segue: UIStoryboardSegue) {
         if let qrScanner = segue.source as? QRScannerController {

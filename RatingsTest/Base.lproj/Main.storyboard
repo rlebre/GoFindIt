@@ -177,7 +177,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="O0q-hm-Vlu" kind="presentation" id="O51-8u-i2S"/>
+                                            <segue destination="O0q-hm-Vlu" kind="presentation" identifier="goToRegisterBeacons" id="O51-8u-i2S"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
