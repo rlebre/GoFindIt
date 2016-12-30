@@ -35,7 +35,7 @@ class AddEventViewController: UITableViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             
-            event = Event(name: nameTextField.text!, location: "", completedBeacons: 0, addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
+            event = Event(name: nameTextField.text!, location: "", addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
         }
         
         if segue.identifier == "goToRegisterBeacons" {

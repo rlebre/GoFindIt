@@ -40,7 +40,13 @@ class EventTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
         let event = events[indexPath.row] as Event
         cell.event = event
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToEventDetail", sender: events[indexPath.row])
+      //  prepare(for: "goToEventDetail", sender: events[indexPath.row])
     }
  
     func imageForRating(rating:Int) -> UIImage? {
@@ -63,6 +69,14 @@ class EventTableViewController: UITableViewController {
                 let indexPath = NSIndexPath(row: events.count-1, section: 0)
                 tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
             }
+        }
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEventDetail" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! EventDetailViewController
+            dest.event = sender as? Event
         }
     }
 

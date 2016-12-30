@@ -12,6 +12,7 @@
 		B3A63CDB1E0945840048537E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CD91E0945840048537E /* Main.storyboard */; };
 		B3A63CDD1E0945840048537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CDC1E0945840048537E /* Assets.xcassets */; };
 		B3A63CE01E0945840048537E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CDE1E0945840048537E /* LaunchScreen.storyboard */; };
+		B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */; };
 		B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */; };
 		B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35D1E0F0E7900033242 /* Event.swift */; };
 		B3EEE3601E0F102400033242 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35F1E0F102400033242 /* SampleData.swift */; };
@@ -29,6 +30,7 @@
 		B3A63CDC1E0945840048537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A63CDF1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ../EventTableViewController.swift; sourceTree = "<group>"; };
 		B3EEE35D1E0F0E7900033242 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B3EEE35F1E0F102400033242 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				B3A63CD71E0945840048537E /* ViewController.swift */,
 				B3EEE3631E0F382E00033242 /* EventCell.swift */,
 				B3A63CD91E0945840048537E /* Main.storyboard */,
+				B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */,
 				B3A63CDC1E0945840048537E /* Assets.xcassets */,
 				B3A63CDE1E0945840048537E /* LaunchScreen.storyboard */,
 				B3A63CE11E0945840048537E /* Info.plist */,
@@ -164,6 +167,7 @@
 				B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */,
 				B3EEE3601E0F102400033242 /* SampleData.swift in Sources */,
 				B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */,
+				B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */,
 				B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */,
 				B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */,
 				B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */,

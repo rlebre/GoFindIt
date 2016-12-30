@@ -13,19 +13,22 @@ struct Event {
     
     var name:String?
     var location :String?
-    var completedBeacons:Int
+    var completedBeacons: [String]
     var completedDate:String?
     var addedDate: String?
     var rating: Int
     var beaconList: [String]
+    var mainImage: String
     
-    init(name: String?, location: String?, completedBeacons: Int, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String]) {
+    
+    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String]) {
         self.name = name
         self.location = location
-        self.completedBeacons = completedBeacons
+        self.completedBeacons = []
         self.completedDate = completedDate
         self.addedDate = addedDate
         self.rating = rating
         self.beaconList = beaconList
+        self.mainImage = ""
     }
 }
