@@ -14,15 +14,19 @@ class RegisterBeaconsTableViewController: UITableViewController {
     
     @IBOutlet var tableVIew: UITableView!
     @IBAction func addButtonPressed(_ sender: Any) {
-        let alert = UIAlertController(title: "New ID", message: "", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Beacon", message: "Enter ID", preferredStyle: .alert)
         alert.addTextField { (textField) in
-            textField.text = "Enter ID"
+            textField.text = ""
         }
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0]
-            self.beacons.append((textField?.text)!)
-            self.tableVIew.reloadData()
+            let text = (textField?.text)!
+            
+            if text != "" {
+                self.beacons.append((textField?.text)!)
+                self.tableVIew.reloadData()
+            }
         }))
         
         self.present(alert, animated: true, completion: nil)
@@ -40,13 +44,7 @@ class RegisterBeaconsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCell", for: indexPath) 
-            
-            let beacon = beacons[indexPath.row] as String
-            cell.textLabel?.text = beacon
-            return cell
-    }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -56,9 +54,25 @@ class RegisterBeaconsTableViewController: UITableViewController {
         return beacons.count
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "SaveBeaconsList" {
-            print("blablabla")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCell", for: indexPath)
+        
+        let beacon = beacons[indexPath.row] as String
+        cell.textLabel?.text = beacon
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            beacons.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+
+    @IBAction func unwindToRegisterBeacons(segue: UIStoryboardSegue) {
+        if let qrScanner = segue.source as? QRScannerController {
+                beacons.append(qrScanner.qr)
+                tableVIew.reloadData()
         }
     }
 

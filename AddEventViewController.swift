@@ -12,28 +12,10 @@ class AddEventViewController: UITableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     var event: Event?
+    var addedBeacons:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        /*
-        let alert = UIAlertController(title: "Some Title", message: "Enter a text", preferredStyle: .alert)
-        
-        //2. Add the text field. You can configure it however you need.
-        alert.addTextField { (textField) in
-            textField.text = "Some default text"
-        }
-        
-        // 3. Grab the value from the text field, and print it when the user clicks OK.
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
-            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            print("Text field: \(textField?.text)")
-        }))
-        
-        // 4. Present the alert.
-        self.present(alert, animated: true, completion: nil)
-        */
-        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -53,20 +35,21 @@ class AddEventViewController: UITableViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             
-            event = Event(name: nameTextField.text!, location: "", completedBeacons: 0, addedDate: formatter.string(from: date), completedDate: "", rating: 0)
+            event = Event(name: nameTextField.text!, location: "", addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
+        }
+        
+        if segue.identifier == "goToRegisterBeacons" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! RegisterBeaconsTableViewController
+            dest.beacons = addedBeacons
         }
     }
     
     @IBAction func saveBeacons(segue:UIStoryboardSegue) {
         if let registerBeaconsViewController = segue.source as? RegisterBeaconsTableViewController {
             
-            if registerBeaconsViewController.beacons != nil {
-                //----------------------
-                //----------------------
-                //----------------------
-                //----------------------
-                //----------------------
-                //----------------------
+            if !registerBeaconsViewController.beacons.isEmpty{
+               self.addedBeacons=registerBeaconsViewController.beacons
             }
         }
     }

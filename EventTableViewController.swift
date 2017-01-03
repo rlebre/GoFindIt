@@ -11,6 +11,7 @@ import UIKit
 class EventTableViewController: UITableViewController {
 
     var events:[Event] = eventsData
+    var selectedRow: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,14 @@ class EventTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EventCell", for: indexPath) as! EventCell
         let event = events[indexPath.row] as Event
         cell.event = event
+        
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRow = indexPath.row
+        performSegue(withIdentifier: "goToEventDetail", sender: events[indexPath.row])
+      //  prepare(for: "goToEventDetail", sender: events[indexPath.row])
     }
  
     func imageForRating(rating:Int) -> UIImage? {
@@ -63,6 +71,37 @@ class EventTableViewController: UITableViewController {
                 let indexPath = NSIndexPath(row: events.count-1, section: 0)
                 tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
             }
+        }
+        
+        if let editEventViewController = segue.source as? EventDetailViewController {
+            
+            //add the new event to the events array
+            if editEventViewController.wasEditted {
+                if let event = editEventViewController.event {
+                    events.append(event)
+                    events.remove(at: editEventViewController.indexOnTable!)
+                    //update the tableView
+                    /*
+                     var indexPath = NSIndexPath(row: editEventViewController.indexOnTable!, section: 2)
+                     tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
+                
+                     indexPath = NSIndexPath(row: events.count-1, section: 0)
+                     tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
+                     */
+                
+                    tableView.reloadData()
+                }
+            }
+        }
+
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToEventDetail" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! EventDetailViewController
+            dest.event = sender as? Event
+            dest.indexOnTable = self.selectedRow
         }
     }
 
