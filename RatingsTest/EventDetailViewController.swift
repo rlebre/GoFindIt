@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EventDetailViewController: UIViewController{
+class EventDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
 
     var event: Event?
     
@@ -23,9 +23,13 @@ class EventDetailViewController: UIViewController{
     
     @IBOutlet weak var beaconsList: UITableView!
     
+    let image = UIImagePickerController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        image.delegate = self
+        
         label_name.text = event?.name
         label_location.text = event?.location
         label_creation_date.text = event?.addedDate
@@ -33,12 +37,15 @@ class EventDetailViewController: UIViewController{
         label_comp_beacons.text = "\(event!.completedBeacons.count)"
         image_rating.image = imageForRating(rating: (event!.rating))
         
-        let ratingTap = UITapGestureRecognizer(target: self, action: #selector(EventDetailViewController.tapDetected))
+        let ratingTap = UITapGestureRecognizer(target: self, action: #selector(EventDetailViewController.ratingTapDetected))
         ratingTap.numberOfTapsRequired = 1
         image_rating.isUserInteractionEnabled = true
         image_rating.addGestureRecognizer(ratingTap)
         
-        
+        let mainImageTap = UITapGestureRecognizer(target: self, action: #selector(EventDetailViewController.mainImageTapDetected))
+        mainImageTap.numberOfTapsRequired = 1
+        image_main.isUserInteractionEnabled = true
+        image_main.addGestureRecognizer(mainImageTap)
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,7 +63,7 @@ class EventDetailViewController: UIViewController{
         return UIImage(named: imageName)
     }
     
-    func tapDetected() {
+    func ratingTapDetected() {
         event?.rating += 1
         
         if (event?.rating)! > 5 {
@@ -64,5 +71,47 @@ class EventDetailViewController: UIViewController{
         }
         
         image_rating.image = imageForRating(rating: (event!.rating))
+    }
+    
+    func mainImageTapDetected() {
+        let alert = UIAlertController(title: "Event Image", message: "Choose from", preferredStyle: .alert)
+
+        
+        alert.addAction(UIAlertAction(title: "Photos", style: .default, handler: { [weak alert] (_) in
+            self.imageChoser(type: "photos")
+        }))
+
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak alert] (_) in
+            self.imageChoser(type: "camera")
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+
+    func imageChoser(type: String) {
+       
+        switch type {
+        case "photos":
+            image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            break
+        case "camera":
+            image.sourceType = UIImagePickerControllerSourceType.camera
+            break
+        default:
+            break
+        }
+        
+        image.allowsEditing = false
+        
+        present(image, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        completion:
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                self.image_main.image = image
+            }
+        
+            dismiss(animated: true, completion: nil)
     }
 }
