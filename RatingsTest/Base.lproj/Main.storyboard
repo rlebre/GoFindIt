@@ -28,32 +28,39 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-EL-YzZ">
-                                            <rect key="frame" x="20" y="0.0" width="247" height="59.5"/>
+                                            <rect key="frame" x="20" y="0.0" width="247" height="60"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="GLy-GF-GUN">
-                                                    <rect key="frame" x="0.0" y="12.5" width="48" height="35"/>
+                                                    <rect key="frame" x="0.0" y="13" width="75" height="34"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZgC-Q9-AhC">
-                                                            <rect key="frame" x="0.0" y="0.0" width="48" height="20.5"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="75" height="19"/>
                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ee-8C-bVR">
-                                                            <rect key="frame" x="0.0" y="20.5" width="48" height="14.5"/>
+                                                            <rect key="frame" x="0.0" y="19" width="75" height="15"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="15" id="ibQ-BG-JC2"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="75" id="krg-o1-YLx"/>
+                                                    </constraints>
                                                 </stackView>
                                                 <imageView userInteractionEnabled="NO" tag="102" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="p0M-et-FMe">
-                                                    <rect key="frame" x="147" y="4" width="100" height="51.5"/>
+                                                    <rect key="frame" x="174" y="4" width="73" height="52"/>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="p0M-et-FMe" firstAttribute="top" secondItem="bV4-EL-YzZ" secondAttribute="top" constant="4" id="Cnt-J8-I0L"/>
                                                 <constraint firstItem="p0M-et-FMe" firstAttribute="leading" secondItem="GLy-GF-GUN" secondAttribute="trailing" constant="99" id="kWf-SN-v5G"/>
+                                                <constraint firstItem="GLy-GF-GUN" firstAttribute="top" secondItem="bV4-EL-YzZ" secondAttribute="top" constant="13" id="mCn-jP-3Qc"/>
                                             </constraints>
                                         </stackView>
                                     </subviews>
@@ -256,6 +263,15 @@
                                             <constraint firstAttribute="height" constant="906" id="oCS-1g-nK1"/>
                                         </constraints>
                                     </view>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-6l-At7">
+                                        <rect key="frame" x="224" y="26" width="88" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <state key="normal" title="Start"/>
+                                        <connections>
+                                            <segue destination="Wm9-LZ-jOX" kind="presentation" identifier="goToStartFind" id="Lm5-nd-Km1"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="SDO-dI-23j" firstAttribute="leading" secondItem="LlQ-31-c3Q" secondAttribute="leading" id="15d-Fb-iXx"/>
@@ -275,7 +291,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fnv-FO-uSd">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xrc-Yw-tLj"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i81-Fw-4cQ">
+                            <connections>
+                                <segue destination="wUF-20-IAB" kind="unwind" unwindAction="cancelToEventTableViewControllerWithSegue:" id="wY2-oR-Vaq"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="xrc-Yw-tLj">
+                            <connections>
+                                <segue destination="wUF-20-IAB" kind="unwind" unwindAction="saveEventDetailWithSegue:" id="dPV-PM-rVz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="beaconsList" destination="sSF-uN-LVl" id="RfI-3i-fZV"/>
@@ -286,13 +311,13 @@
                         <outlet property="label_creation_date" destination="nI0-nL-9Me" id="gTF-WB-fco"/>
                         <outlet property="label_location" destination="vqS-O2-7eV" id="ahM-rc-neo"/>
                         <outlet property="label_name" destination="GwG-CY-7YO" id="LkN-dY-IK9"/>
-                        <segue destination="Wm9-LZ-jOX" kind="presentation" identifier="goToStartFind" id="C4E-HA-nzV"/>
                         <segue destination="taE-SC-SbL" kind="presentation" id="Awt-5f-q51"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3J-mV-NKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="wUF-20-IAB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2784" y="869"/>
+            <point key="canvasLocation" x="2782.5" y="868.30985915492954"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="JB6-d4-X9Y">

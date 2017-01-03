@@ -8,9 +8,11 @@
 
 import UIKit
 
-class EventDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate{
+class EventDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     var event: Event?
+    var wasEditted = false
+    var indexOnTable: Int?
     
     @IBOutlet weak var label_name: UILabel!
     @IBOutlet weak var label_location: UILabel!
@@ -29,6 +31,8 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         super.viewDidLoad()
         
         image.delegate = self
+        beaconsList.delegate = self
+        beaconsList.dataSource = self
         
         label_name.text = event?.name
         label_location.text = event?.location
@@ -36,6 +40,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         label_comp_date.text = event?.completedBeacons.count == event?.beaconList.count ? event?.completedDate : "Go Find It!"
         label_comp_beacons.text = "\(event!.completedBeacons.count)"
         image_rating.image = imageForRating(rating: (event!.rating))
+        image_main.image = event?.mainImage
         
         let ratingTap = UITapGestureRecognizer(target: self, action: #selector(EventDetailViewController.ratingTapDetected))
         ratingTap.numberOfTapsRequired = 1
@@ -63,7 +68,11 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         return UIImage(named: imageName)
     }
     
+    
+    
     func ratingTapDetected() {
+        wasEditted = true
+
         event?.rating += 1
         
         if (event?.rating)! > 5 {
@@ -74,14 +83,16 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func mainImageTapDetected() {
+        wasEditted = true
+        
         let alert = UIAlertController(title: "Event Image", message: "Choose from", preferredStyle: .alert)
 
         
-        alert.addAction(UIAlertAction(title: "Photos", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Photos", style: .default, handler: { (_) in
             self.imageChoser(type: "photos")
         }))
 
-        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { [weak alert] (_) in
+        alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) in
             self.imageChoser(type: "camera")
         }))
         
@@ -110,8 +121,19 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         completion:
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
                 self.image_main.image = image
+                event?.mainImage = image
             }
         
             dismiss(animated: true, completion: nil)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        cell.textLabel?.text = event?.beaconList[indexPath.row]
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return (event?.beaconList.count)!
     }
 }

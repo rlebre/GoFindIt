@@ -18,7 +18,7 @@ struct Event {
     var addedDate: String?
     var rating: Int
     var beaconList: [String]
-    var mainImage: String
+    var mainImage: UIImage
     
     
     init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String]) {
@@ -29,6 +29,6 @@ struct Event {
         self.addedDate = addedDate
         self.rating = rating
         self.beaconList = beaconList
-        self.mainImage = ""
+        self.mainImage = UIImage(named: "tap_to_load")!
     }
 }
