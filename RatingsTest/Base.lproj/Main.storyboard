@@ -636,6 +636,10 @@
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" image="cross"/>
+                                        <connections>
+                                            <action selector="goBack" destination="ofj-1e-pBm" eventType="touchUpInside" id="Cfs-tE-abc"/>
+                                            <segue destination="G5c-Xd-gkb" kind="unwind" unwindAction="unwindToRegisterBeaconsWithSegue:" id="cnZ-HI-XfW"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -687,6 +691,7 @@
         <!--Navigation Controller-->
         <scene sceneID="wfa-aQ-a5x">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8du-qk-SI2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ktu-bY-3Oh">
@@ -698,7 +703,6 @@
                         <segue destination="lvD-qP-24V" kind="relationship" relationship="rootViewController" id="D3F-Lx-vAl"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5870.625" y="-574.64788732394368"/>
         </scene>
