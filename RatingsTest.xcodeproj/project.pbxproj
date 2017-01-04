@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64B3F7391E1D8E2F00097EEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B3F7381E1D8E2F00097EEC /* MapViewController.swift */; };
+		64B3F73B1E1DA21000097EEC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B3F73A1E1DA21000097EEC /* LocationViewController.swift */; };
 		B3836D4A1E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */; };
 		B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A63CD51E0945840048537E /* AppDelegate.swift */; };
 		B3A63CD81E0945840048537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A63CD71E0945840048537E /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64B3F7381E1D8E2F00097EEC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		64B3F73A1E1DA21000097EEC /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsWirelessTableViewController.swift; sourceTree = "<group>"; };
 		B3A63CD21E0945840048537E /* RatingsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatingsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A63CD51E0945840048537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +82,9 @@
 		B3A63CD41E0945840048537E /* RatingsTest */ = {
 			isa = PBXGroup;
 			children = (
+				64B3F7381E1D8E2F00097EEC /* MapViewController.swift */,
 				B3A63CD71E0945840048537E /* ViewController.swift */,
+				64B3F73A1E1DA21000097EEC /* LocationViewController.swift */,
 				B3A63CD51E0945840048537E /* AppDelegate.swift */,
 				B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */,
 				B3EEE3671E0F418C00033242 /* AddEventViewController.swift */,
@@ -185,6 +191,8 @@
 				B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */,
 				B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */,
 				B3EEE3601E0F102400033242 /* SampleData.swift in Sources */,
+				64B3F7391E1D8E2F00097EEC /* MapViewController.swift in Sources */,
+				64B3F73B1E1DA21000097EEC /* LocationViewController.swift in Sources */,
 				B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */,
 				B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */,
 				B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */,
