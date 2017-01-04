@@ -15,6 +15,7 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, CLLocat
     var selectedUIDs: [String] = []
     
     let locationManager = CLLocationManager()
+    //let region = CLBeaconRegion(proximityUUID: NSUUID(uuidString: "f7826da6-bc5b71e0-893e656d-336b7a59") as! UUID, identifier: "Beacons")
     let region = CLBeaconRegion(proximityUUID: NSUUID(uuidString: "9e4c5a69-6705-47c1-9564-471c99459331") as! UUID, identifier: "Beacons")
     
     @IBOutlet var uuidTableView: UITableView!

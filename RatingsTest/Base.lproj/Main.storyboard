@@ -257,7 +257,7 @@
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
-                                            <segue destination="Wm9-LZ-jOX" kind="show" identifier="goToStartFind" id="Lm5-nd-Km1"/>
+                                            <segue destination="xkx-CZ-Phf" kind="presentation" identifier="goToStartFind" id="Lm5-nd-Km1"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -319,10 +319,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Let's Find It!" id="9jT-0G-RYW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Dhr-RL-vZd"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="iwn-Lc-Rn4"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aq-YY-o5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3564" y="869"/>
+            <point key="canvasLocation" x="4560" y="868.30985915492954"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="QCp-ph-V8f">
@@ -705,6 +709,24 @@
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="5870.625" y="-574.64788732394368"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="zG9-tC-r5A">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xkx-CZ-Phf" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tdf-2W-9Zu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Wm9-LZ-jOX" kind="relationship" relationship="rootViewController" id="A3Z-pj-qET"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kc7-96-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3562.5" y="868.30985915492954"/>
         </scene>
     </scenes>
     <resources>
