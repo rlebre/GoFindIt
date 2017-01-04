@@ -307,7 +307,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3J-mV-NKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wUF-20-IAB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2782.5" y="868.30985915492954"/>
+            <point key="canvasLocation" x="3564" y="867"/>
         </scene>
         <!--Event Running-->
         <scene sceneID="tD0-vw-bwQ">
@@ -338,7 +338,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aq-YY-o5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4560" y="868.30985915492954"/>
+            <point key="canvasLocation" x="5066" y="868"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="oVd-wr-Ggy">
@@ -353,9 +353,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2yH-XE-Ser">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-Gl-Afu">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Coordinates" id="1KK-dw-GvT">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="uUl-cM-hcG"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -365,7 +374,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="S1Z-oB-34Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3562.5" y="-552.46478873239437"/>
+            <point key="canvasLocation" x="4329.375" y="-545.07042253521126"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="QCp-ph-V8f">
@@ -428,7 +437,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NiK-gw-j3a" kind="presentation" id="vwH-yX-o9Z"/>
+                                            <segue destination="NiK-gw-j3a" kind="show" id="vwH-yX-o9Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -558,6 +567,14 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdO-wM-M80" userLabel="Location">
+                                            <rect key="frame" x="238" y="6" width="82" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Location"/>
+                                            <connections>
+                                                <segue destination="NiK-gw-j3a" kind="show" id="KQQ-3D-uJB"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -598,7 +615,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hav-Wf-KYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZEW-PH-lnN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5068" y="130"/>
+            <point key="canvasLocation" x="5066.25" y="129.92957746478874"/>
         </scene>
         <!--Navigator Initial-->
         <scene sceneID="Oqv-uL-WKX">
@@ -768,13 +785,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc7-96-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3562.5" y="868.30985915492954"/>
+            <point key="canvasLocation" x="4331" y="867"/>
         </scene>
     </scenes>
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="B7i-of-6af"/>
+        <segue reference="O51-8u-i2S"/>
+        <segue reference="vwH-yX-o9Z"/>
     </inferredMetricsTieBreakers>
 </document>

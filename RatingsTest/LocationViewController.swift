@@ -15,6 +15,9 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     
     @IBOutlet var map: MKMapView!
     var manager = CLLocationManager()
+    var bool = false
+    var locationCoordinate = CLLocationCoordinate2DMake(0, 0)
+    var pin = MKPointAnnotation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,16 +68,22 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let position = touch.location(in: map)
-            let locationCoordinate = map.convert(position, toCoordinateFrom: map)
+            if (bool==true){
+                map.removeAnnotation(pin)
+            }
+            
+            locationCoordinate = map.convert(position, toCoordinateFrom: map)
             print(locationCoordinate.latitude)
             print(locationCoordinate.longitude)
             
-            let pin = MKPointAnnotation()
+            
             pin.coordinate.latitude = CLLocationDegrees(locationCoordinate.latitude)
             pin.coordinate.longitude = CLLocationDegrees(locationCoordinate.longitude)
-            pin.title = "Beacon"
+            pin.title = "Location"
+            
             
             map.addAnnotation(pin)
+            bool = true
         }
     }
     
