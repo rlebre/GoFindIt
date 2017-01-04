@@ -71,9 +71,20 @@ class RegisterBeaconsTableViewController: UITableViewController {
 
     @IBAction func unwindToRegisterBeacons(segue: UIStoryboardSegue) {
         if let qrScanner = segue.source as? QRScannerController {
+            if qrScanner.qr != "" {
                 beacons.append(qrScanner.qr)
                 tableVIew.reloadData()
+            }
         }
+        
+        if let wirelessScanner = segue.source as? RegisterBeaconsWirelessTableViewController {
+            for uid in wirelessScanner.selectedUIDs {
+                beacons.append(uid)
+            }
+            
+            tableVIew.reloadData()
+        }
+        
     }
 
 }

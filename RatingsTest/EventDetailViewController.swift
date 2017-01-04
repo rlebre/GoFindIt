@@ -96,6 +96,10 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             self.imageChoser(type: "camera")
         }))
         
+        alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { (_) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
         self.present(alert, animated: true, completion: nil)
     }
 
