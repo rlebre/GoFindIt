@@ -244,6 +244,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-LP-mtZ">
                                                 <rect key="frame" x="270" y="386" width="22" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="O0q-hm-Vlu" kind="presentation" id="B7i-of-6af"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -771,4 +774,7 @@
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="B7i-of-6af"/>
+    </inferredMetricsTieBreakers>
 </document>
