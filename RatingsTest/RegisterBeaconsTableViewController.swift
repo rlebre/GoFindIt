@@ -11,6 +11,7 @@ import UIKit
 class RegisterBeaconsTableViewController: UITableViewController {
 
     var beacons: [String] = []
+    var selectedRow: Int = 0
     
     @IBOutlet var tableVIew: UITableView!
     @IBAction func addButtonPressed(_ sender: Any) {
@@ -57,8 +58,16 @@ class RegisterBeaconsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCell", for: indexPath)
         
-        let beacon = beacons[indexPath.row] as String
-        cell.textLabel?.text = beacon
+        let beaconPlusLocation = (beacons[indexPath.row] as String).characters.split{$0 == "="}.map(String.init)
+        
+        if beaconPlusLocation.count == 1 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = "Pick Location Please"
+        }else if beaconPlusLocation.count == 2 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = beaconPlusLocation[1]
+        }
+        
         return cell
     }
     
@@ -69,6 +78,20 @@ class RegisterBeaconsTableViewController: UITableViewController {
         }
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.selectedRow = indexPath.row
+        performSegue(withIdentifier: "goToPickBeaconLocation", sender: beacons[indexPath.row])
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPickBeaconLocation" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! PickBeaconLocationViewController
+            dest.beaconId = sender as! String
+            dest.indexOnTable = self.selectedRow
+        }
+    }
+    
     @IBAction func unwindToRegisterBeacons(segue: UIStoryboardSegue) {
         if let qrScanner = segue.source as? QRScannerController {
             if qrScanner.qr != "" {
@@ -85,6 +108,15 @@ class RegisterBeaconsTableViewController: UITableViewController {
             tableVIew.reloadData()
         }
         
+        if let beaconLocationPickerViewController = segue.source as? PickBeaconLocationViewController {
+            
+            beacons.remove(at: beaconLocationPickerViewController.indexOnTable)
+            beacons.append("\(beaconLocationPickerViewController.beaconId)=\(beaconLocationPickerViewController.currentCoordinates)")
+            
+            tableVIew.reloadData()
+        }
     }
 
+    @IBAction func cancelToRegisterBeacons(segue: UIStoryboardSegue) {
+    }
 }

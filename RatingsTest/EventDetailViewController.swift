@@ -132,8 +132,20 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = event?.beaconList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCellDetail", for: indexPath)
+        let a = (event?.beaconList[indexPath.row])! as String
+        print(a)
+        let beaconPlusLocation = ((event?.beaconList[indexPath.row])! as String).characters.split{$0 == "="}.map(String.init)
+        
+        if beaconPlusLocation.count == 1 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = "Pick Location Please"
+        }else if beaconPlusLocation.count == 2 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = beaconPlusLocation[1]
+        }
+
+        //cell.textLabel?.text = event?.beaconList[indexPath.row]
         return cell
     }
     
