@@ -31,4 +31,15 @@ struct Event {
         self.beaconList = beaconList
         self.mainImage = UIImage(named: "tap_to_load")!
     }
+    
+    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], completedBeacons:[String], mainImage:UIImage) {
+        self.name = name
+        self.location = location
+        self.completedBeacons = completedBeacons
+        self.completedDate = completedDate
+        self.addedDate = addedDate
+        self.rating = rating
+        self.beaconList = beaconList
+        self.mainImage = mainImage
+    }
 }

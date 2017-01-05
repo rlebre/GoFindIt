@@ -91,6 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainTableView" destination="lsz-2N-vIq" id="TUQ-36-PkX"/>
                         <segue destination="E8c-Mh-4nS" kind="presentation" identifier="goToEventDetail" id="E13-nj-ezk"/>
                     </connections>
                 </tableViewController>
@@ -695,7 +696,6 @@
         <!--Navigation Controller-->
         <scene sceneID="wfa-aQ-a5x">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8du-qk-SI2" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ktu-bY-3Oh">
@@ -707,6 +707,7 @@
                         <segue destination="lvD-qP-24V" kind="relationship" relationship="rootViewController" id="D3F-Lx-vAl"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5870.625" y="-574.64788732394368"/>
         </scene>
