@@ -53,6 +53,14 @@ class EventTableViewController: UITableViewController {
       //  prepare(for: "goToEventDetail", sender: events[indexPath.row])
     }
  
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            removeFromPersistence(id: events[indexPath.row].id!)
+            events.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     func imageForRating(rating:Int) -> UIImage? {
         let imageName = "\(rating)Stars"
         return UIImage(named: imageName)
@@ -118,6 +126,7 @@ class EventTableViewController: UITableViewController {
             for result in results {
                 let match = result as! NSManagedObject
                 
+                let id = match.value(forKey: "id") as? String
                 let name = match.value(forKey: "name") as? String
                 let location = match.value(forKey:"location") as? String
                 let addedDate = match.value(forKey:"addedDate") as? String
@@ -134,7 +143,7 @@ class EventTableViewController: UITableViewController {
                 let dataDecoded:NSData = NSData(base64Encoded: aux!, options: .ignoreUnknownCharacters)!
                 let mainImage = UIImage(data: dataDecoded as Data)!
                
-                let event = Event(name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage)
+                let event = Event(id: id, name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage)
                 
                 eventsList.append(event)
             }
@@ -182,7 +191,12 @@ class EventTableViewController: UITableViewController {
             let results = try managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>)
             
             for result in results {
-                if (result as! NSManagedObject).value(forKey: "id") as? String == id {
+                let match = result as! NSManagedObject
+                let idPersistence = match.value(forKey: "id") as? String
+                let idEvent = id
+                print(idPersistence!+"="+idEvent)
+            
+                if idPersistence == id {
                     managedObjectContext.delete(result as! NSManagedObject)
                 }
             }
