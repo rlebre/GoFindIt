@@ -437,7 +437,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NiK-gw-j3a" kind="show" id="vwH-yX-o9Z"/>
+                                            <segue destination="NiK-gw-j3a" kind="presentation" id="vwH-yX-o9Z"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -572,7 +572,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Location"/>
                                             <connections>
-                                                <segue destination="NiK-gw-j3a" kind="show" id="KQQ-3D-uJB"/>
+                                                <segue destination="NiK-gw-j3a" kind="presentation" id="KQQ-3D-uJB"/>
                                             </connections>
                                         </button>
                                     </subviews>

@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
 
 class AddEventViewController: UITableViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     var event: Event?
     var addedBeacons:[String] = []
+    //var loc = CLLocationCoordinate2DMake(0, 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,17 @@ class AddEventViewController: UITableViewController {
             let dest = temp.topViewController as! RegisterBeaconsTableViewController
             dest.beacons = addedBeacons
         }
+        /*
+        if segue.identifier == "goToLocation" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! LocationViewController
+            dest.locationCoordinate = loc
+            print("loc ")
+            
+        }*/
     }
+    
+    
     
     @IBAction func saveBeacons(segue:UIStoryboardSegue) {
         if let registerBeaconsViewController = segue.source as? RegisterBeaconsTableViewController {
