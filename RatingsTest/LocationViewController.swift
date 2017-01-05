@@ -82,7 +82,7 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
     }
     
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let position = touch.location(in: map)
             if (bool==true){
