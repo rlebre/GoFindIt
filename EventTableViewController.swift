@@ -65,37 +65,10 @@ class EventTableViewController: UITableViewController {
     @IBAction func saveEventDetail(segue:UIStoryboardSegue) {
         if let addEventViewController = segue.source as? AddEventViewController {
             
-            //add the new event to the events array
+            //add the new event to the events array and write it on storage
             if let event = addEventViewController.event {
+                persistEvent(event: event)
                 
-                //events.append(event)
-                
-                let entityDescription = NSEntityDescription.entity(forEntityName: "Events", in: managedObjectContext)
-                let persistEvent = Events(entity: entityDescription!, insertInto: managedObjectContext)
-                
-                persistEvent.name = event.name
-                persistEvent.location = event.location
-                persistEvent.completedBeacons = event.completedBeacons.joined(separator: ":")
-                persistEvent.completedDate = event.completedDate
-                persistEvent.addedDate = event.addedDate
-                persistEvent.rating = Int16(event.rating)
-                persistEvent.beaconList = event.beaconList.joined(separator: ":")
-                
-                let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData
-                
-                let imageStr = imageData.base64EncodedString(options: .lineLength64Characters)
-                persistEvent.mainImage = imageStr
-                
-                
-                do {
-                    try managedObjectContext.save()
-                } catch let error {
-                    NSLog("ERROR", error.localizedDescription)
-                }
-                
-                //update the tableView
-                //let indexPath = NSIndexPath(row: events.count-1, section: 1)
-                //tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
                 events.append(event)
                 mainTableView.reloadData()
             }
@@ -103,25 +76,18 @@ class EventTableViewController: UITableViewController {
         
         if let editEventViewController = segue.source as? EventDetailViewController {
             
-            //add the new event to the events array
             if editEventViewController.wasEditted {
                 if let event = editEventViewController.event {
-                    events.append(event)
                     events.remove(at: editEventViewController.indexOnTable!)
-                    //update the tableView
-                    /*
-                     var indexPath = NSIndexPath(row: editEventViewController.indexOnTable!, section: 2)
-                     tableView.deleteRows(at: [indexPath as IndexPath], with: .automatic)
-                
-                     indexPath = NSIndexPath(row: events.count-1, section: 0)
-                     tableView.insertRows(at: [indexPath as IndexPath], with: .automatic)
-                     */
-                
+
+                    removeFromPersistence(id: event.id!)
+                    persistEvent(event: event)
+                    events.append(event)
+                    
                     tableView.reloadData()
                 }
             }
         }
-
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -180,4 +146,50 @@ class EventTableViewController: UITableViewController {
         return eventsList
     }
 
+    func persistEvent(event: Event) {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Events", in: managedObjectContext)
+        let persistEvent = Events(entity: entityDescription!, insertInto: managedObjectContext)
+        
+        persistEvent.id = event.id
+        persistEvent.name = event.name
+        persistEvent.location = event.location
+        persistEvent.completedBeacons = event.completedBeacons.joined(separator: ":")
+        persistEvent.completedDate = event.completedDate
+        persistEvent.addedDate = event.addedDate
+        persistEvent.rating = Int16(event.rating)
+        persistEvent.beaconList = event.beaconList.joined(separator: ":")
+        
+        let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData
+        
+        let imageStr = imageData.base64EncodedString(options: .lineLength64Characters)
+        persistEvent.mainImage = imageStr
+        
+        
+        do {
+            try managedObjectContext.save()
+        } catch let error {
+            NSLog("ERROR", error.localizedDescription)
+        }
+    }
+    
+    func removeFromPersistence(id: String) {
+        let entityDescription = NSEntityDescription.entity(forEntityName: "Events", in: managedObjectContext)
+        
+        let request: NSFetchRequest<Events> = Events.fetchRequest()
+        request.entity = entityDescription
+        
+        do {
+            let results = try managedObjectContext.fetch(request as! NSFetchRequest<NSFetchRequestResult>)
+            
+            for result in results {
+                if (result as! NSManagedObject).value(forKey: "id") as? String == id {
+                    managedObjectContext.delete(result as! NSManagedObject)
+                }
+            }
+            
+            try managedObjectContext.save()
+        } catch let error {
+            NSLog("ERROR", error.localizedDescription)
+        }
+    }
 }
