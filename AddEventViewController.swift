@@ -48,8 +48,7 @@ class AddEventViewController: UITableViewController {
         
         if segue.identifier == "goToLocation" {
             let temp = (segue.destination as! LocationViewController)
-            loc = temp.locationCoordinate
-            print("loc: ", loc)
+            temp.locationCoordinate = loc
             
         }
     }

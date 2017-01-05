@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1P-6k-LP5" id="hRD-GK-5V9">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-EL-YzZ">
@@ -178,7 +178,7 @@
                                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="he8-V0-jou" id="roQ-0O-JlN">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -186,7 +186,7 @@
                                                         <rect key="frame" x="0.0" y="72" width="288" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="EcQ-ZT-464" id="xgl-L6-bxn">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -194,7 +194,7 @@
                                                         <rect key="frame" x="0.0" y="116" width="288" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="D7s-7B-VaK" id="HHP-WC-nza">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -202,7 +202,7 @@
                                                         <rect key="frame" x="0.0" y="160" width="288" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="obc-wW-Npa" id="lQ6-8Z-KrH">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -210,7 +210,7 @@
                                                         <rect key="frame" x="0.0" y="204" width="288" height="44"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3iy-BM-GYS" id="rVq-h3-S2G">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="44"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                         </tableViewCellContentView>
                                                     </tableViewCell>
@@ -340,42 +340,6 @@
             </objects>
             <point key="canvasLocation" x="5066" y="868"/>
         </scene>
-        <!--Location View Controller-->
-        <scene sceneID="oVd-wr-Ggy">
-            <objects>
-                <viewController id="NiK-gw-j3a" customClass="LocationViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eyZ-sT-E8j"/>
-                        <viewControllerLayoutGuide type="bottom" id="N7b-WD-Mkq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="klh-n3-pvr">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2yH-XE-Ser">
-                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            </mapView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XlD-Gl-Afu">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Coordinates" id="1KK-dw-GvT">
-                                        <barButtonItem key="leftBarButtonItem" title="Done" id="uUl-cM-hcG"/>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="map" destination="2yH-XE-Ser" id="wsb-Vk-Xmg"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="S1Z-oB-34Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4329.375" y="-545.07042253521126"/>
-        </scene>
         <!--Add Event-->
         <scene sceneID="QCp-ph-V8f">
             <objects>
@@ -437,7 +401,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="NiK-gw-j3a" kind="presentation" identifier="goToLocation" id="vwH-yX-o9Z"/>
+                                            <segue destination="xXw-bC-cMG" kind="presentation" identifier="goToLocation" id="QjO-Fq-xnd"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -513,7 +477,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vMw-9K-DUz" id="62e-Iv-G2B">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -572,7 +536,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Location"/>
                                             <connections>
-                                                <segue destination="NiK-gw-j3a" kind="presentation" id="KQQ-3D-uJB"/>
+                                                <segue destination="4sp-ah-4nK" kind="presentation" id="ZcA-DA-O9j"/>
                                             </connections>
                                         </button>
                                     </subviews>
@@ -787,12 +751,93 @@
             </objects>
             <point key="canvasLocation" x="4331" y="867"/>
         </scene>
+        <!--Location2 View Controller-->
+        <scene sceneID="Kfa-2p-OGC">
+            <objects>
+                <viewController id="4sp-ah-4nK" customClass="Location2ViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rRM-xK-aDt"/>
+                        <viewControllerLayoutGuide type="bottom" id="TtP-Nd-j1I"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9U9-hF-NVI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1au-aa-1wb">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6h5-Pw-IFb">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Coordinates" id="Vka-sy-Equ">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="FSn-Oc-MDC">
+                                            <connections>
+                                                <segue destination="1GX-r1-xJo" kind="unwind" unwindAction="unwindToRegisterBeaconsWithSegue:" id="AW6-0g-nsq"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="1au-aa-1wb" id="xmM-8v-13i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hq0-1i-19s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="1GX-r1-xJo" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5064" y="-545"/>
+        </scene>
+        <!--Location View Controller-->
+        <scene sceneID="AtE-SI-N2M">
+            <objects>
+                <viewController id="xXw-bC-cMG" customClass="LocationViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="yhq-WV-Gvd"/>
+                        <viewControllerLayoutGuide type="bottom" id="sOe-WB-NJH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aWC-mW-jBj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" showsScale="YES" showsTraffic="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uih-rb-Y8a">
+                                <rect key="frame" x="0.0" y="44" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hnM-xC-IQ2">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Coordinates" id="4BY-cZ-j4k">
+                                        <barButtonItem key="leftBarButtonItem" title="Done" id="nLq-dL-6Ib">
+                                            <connections>
+                                                <segue destination="TSG-8a-RlS" kind="unwind" identifier="backToAddEvent" unwindAction="saveBeaconsWithSegue:" id="tsc-54-bVR"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="map" destination="uih-rb-Y8a" id="MLH-MO-qHT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ex1-ur-MgN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="TSG-8a-RlS" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4329" y="-545"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="O51-8u-i2S"/>
-        <segue reference="vwH-yX-o9Z"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -1,8 +1,8 @@
 //
-//  LocationViewController.swift
+//  Location2ViewController.swift
 //  RatingsTest
 //
-//  Created by students@deti on 04/01/2017.
+//  Created by students@deti on 05/01/2017.
 //  Copyright © 2017 Rui Lebre. All rights reserved.
 //
 
@@ -10,8 +10,8 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
-
+class Location2ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+    
     
     @IBOutlet var map: MKMapView!
     var manager = CLLocationManager()
@@ -62,23 +62,6 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
         map.setRegion(region, animated: false)
         
         
-        if (bool==true){
-            map.removeAnnotation(pin)
-        }
-        
-    
-        
-        
-        pin.coordinate.latitude = CLLocationDegrees(locationCoordinate.latitude)
-        pin.coordinate.longitude = CLLocationDegrees(locationCoordinate.longitude)
-        pin.title = "Location"
-        
-        
-        map.addAnnotation(pin)
-        bool = true
-
-        print("LX:", locationCoordinate)
-        
     }
     
     
@@ -101,21 +84,9 @@ class LocationViewController: UIViewController, MKMapViewDelegate, CLLocationMan
             
             map.addAnnotation(pin)
             bool = true
-            
         }
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "backToAddEvent" {
-            
-            let temp = (segue.destination as! AddEventViewController)
-            temp.loc = locationCoordinate
-            
-            
-        }
-        
-    }
     
     
 }

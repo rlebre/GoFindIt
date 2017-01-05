@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		64937D951E1E881B0017D0CF /* Location2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64937D941E1E881B0017D0CF /* Location2ViewController.swift */; };
 		64B3F7391E1D8E2F00097EEC /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B3F7381E1D8E2F00097EEC /* MapViewController.swift */; };
 		64B3F73B1E1DA21000097EEC /* LocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64B3F73A1E1DA21000097EEC /* LocationViewController.swift */; };
 		B3836D4A1E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		64937D941E1E881B0017D0CF /* Location2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location2ViewController.swift; sourceTree = "<group>"; };
 		64B3F7381E1D8E2F00097EEC /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		64B3F73A1E1DA21000097EEC /* LocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationViewController.swift; sourceTree = "<group>"; };
 		B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsWirelessTableViewController.swift; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 				B3A63CDC1E0945840048537E /* Assets.xcassets */,
 				B3A63CE11E0945840048537E /* Info.plist */,
 				B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */,
+				64937D941E1E881B0017D0CF /* Location2ViewController.swift */,
 			);
 			path = RatingsTest;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				B3836D4A1E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift in Sources */,
 				B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */,
 				B3A63CD81E0945840048537E /* ViewController.swift in Sources */,
+				64937D951E1E881B0017D0CF /* Location2ViewController.swift in Sources */,
 				B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */,
 				B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */,
 				B3EEE3601E0F102400033242 /* SampleData.swift in Sources */,
