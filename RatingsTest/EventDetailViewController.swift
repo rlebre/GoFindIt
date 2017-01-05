@@ -140,4 +140,8 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (event?.beaconList.count)!
     }
+    
+    @IBAction func cancelToEventDetailViewController(segue:UIStoryboardSegue) {
+        
+    }
 }
