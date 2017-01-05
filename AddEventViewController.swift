@@ -13,6 +13,7 @@ class AddEventViewController: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     var event: Event?
     var addedBeacons:[String] = []
+    var addedLocation:String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,7 @@ class AddEventViewController: UITableViewController {
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
             
-            event = Event(name: nameTextField.text!, location: "", addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
+            event = Event(name: nameTextField.text!, location: addedLocation, addedDate: formatter.string(from: date), completedDate: "", rating: 0, beaconList: self.addedBeacons)
         }
         
         if segue.identifier == "goToRegisterBeacons" {
@@ -54,4 +55,17 @@ class AddEventViewController: UITableViewController {
         }
     }
 
+    @IBAction func cancelToAddEvent(segue:UIStoryboardSegue) {
+    
+    }
+    
+    @IBAction func saveLocation(segue:UIStoryboardSegue) {
+        if let pickLocationViewController = segue.source as? PickLocationViewController {
+            if !pickLocationViewController.currentCity.isEmpty {
+                self.addedLocation = pickLocationViewController.currentCity
+            } else {
+                self.addedLocation = pickLocationViewController.currentCoordinates
+            }
+        }
+    }
 }

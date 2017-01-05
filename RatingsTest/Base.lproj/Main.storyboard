@@ -329,6 +329,46 @@
             </objects>
             <point key="canvasLocation" x="4560" y="868.30985915492954"/>
         </scene>
+        <!--Pick Location-->
+        <scene sceneID="ZD4-OX-j3H">
+            <objects>
+                <viewController title="Pick Location" id="Z9Y-CA-ysQ" customClass="PickLocationViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CdG-cC-3Cm"/>
+                        <viewControllerLayoutGuide type="bottom" id="5Dx-Id-0Wq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dXZ-Qb-grx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="20q-P6-B0X">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Pick Location" id="T2c-yI-aLb">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="5jC-II-NPC">
+                            <connections>
+                                <segue destination="BH0-QL-aLI" kind="unwind" unwindAction="cancelToAddEventWithSegue:" id="3l8-WX-3hK"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="s1t-zQ-je6">
+                            <connections>
+                                <segue destination="BH0-QL-aLI" kind="unwind" unwindAction="saveLocationWithSegue:" id="wmh-bD-thB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapPickBeacon" destination="20q-P6-B0X" id="XuW-Tx-vRU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tng-JD-49G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="BH0-QL-aLI" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="5064.375" y="-575.70422535211264"/>
+        </scene>
         <!--Add Event-->
         <scene sceneID="QCp-ph-V8f">
             <objects>
@@ -389,6 +429,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="1JF-Ar-DOt" kind="presentation" identifier="goToPickLocation" id="4TL-fs-9wO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -492,7 +535,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85J-T6-1jQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="F3z-jk-IFq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6868.125" y="-574.64788732394368"/>
+            <point key="canvasLocation" x="6656" y="-576"/>
         </scene>
         <!--Register-->
         <scene sceneID="MJp-Qm-bfI">
@@ -709,7 +752,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5870.625" y="-574.64788732394368"/>
+            <point key="canvasLocation" x="5871" y="-575"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zG9-tC-r5A">
@@ -728,6 +771,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc7-96-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3562.5" y="868.30985915492954"/>
+        </scene>
+        <!--PickLocNavigationController-->
+        <scene sceneID="DQc-C8-DCX">
+            <objects>
+                <navigationController title="PickLocNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="1JF-Ar-DOt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CCh-n2-gPm">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Z9Y-CA-ysQ" kind="relationship" relationship="rootViewController" id="4Rh-LB-Zem"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUi-X1-77h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4329.375" y="-575.70422535211264"/>
         </scene>
     </scenes>
     <resources>
