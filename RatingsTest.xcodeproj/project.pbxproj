@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B310F69B1E1FBF6200089CDB /* LetsFindItViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */; };
 		B33904471E1E966400B94E36 /* PickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33904461E1E966400B94E36 /* PickLocationViewController.swift */; };
 		B33904491E1EA76200B94E36 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33904481E1EA76200B94E36 /* Reach.swift */; };
 		B339044D1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339044C1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFindItViewController.swift; sourceTree = "<group>"; };
 		B33904461E1E966400B94E36 /* PickLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickLocationViewController.swift; sourceTree = "<group>"; };
 		B33904481E1EA76200B94E36 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
 		B339044C1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickBeaconLocationViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */,
 				B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */,
 				B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */,
+				B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */,
 				B3EEE3631E0F382E00033242 /* EventCell.swift */,
 				B3EEE35D1E0F0E7900033242 /* Event.swift */,
 				B33904481E1EA76200B94E36 /* Reach.swift */,
@@ -197,6 +200,7 @@
 				B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */,
 				B33904471E1E966400B94E36 /* PickLocationViewController.swift in Sources */,
 				B33904491E1EA76200B94E36 /* Reach.swift in Sources */,
+				B310F69B1E1FBF6200089CDB /* LetsFindItViewController.swift in Sources */,
 				B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */,
 				B3B4BE1A1E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld in Sources */,
 			);

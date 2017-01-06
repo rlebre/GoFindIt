@@ -27,6 +27,9 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     
     let image = UIImagePickerController()
     
+    @IBAction func buttonStartPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToStartEvent", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -133,8 +136,8 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCellDetail", for: indexPath)
-        let a = (event?.beaconList[indexPath.row])! as String
-        print(a)
+        //let a = (event?.beaconList[indexPath.row])! as String
+        //print(a)
         let beaconPlusLocation = ((event?.beaconList[indexPath.row])! as String).characters.split{$0 == "="}.map(String.init)
         
         if beaconPlusLocation.count == 1 {
@@ -167,6 +170,12 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             let dest = temp.topViewController as! RegisterBeaconsTableViewController
             dest.beacons = (event?.beaconList)!
             dest.invoker = "EditViewController"
+        }
+        
+        if segue.identifier == "goToStartEvent" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! LetsFindItViewController
+            dest.event = event
         }
     }
     

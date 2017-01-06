@@ -193,8 +193,6 @@ class EventTableViewController: UITableViewController {
             for result in results {
                 let match = result as! NSManagedObject
                 let idPersistence = match.value(forKey: "id") as? String
-                let idEvent = id
-                print(idPersistence!+"="+idEvent)
             
                 if idPersistence == id {
                     managedObjectContext.delete(result as! NSManagedObject)
