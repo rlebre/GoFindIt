@@ -153,6 +153,14 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         return (event?.beaconList.count)!
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            event?.beaconList.remove(at: indexPath.row)
+            wasEditted = true
+            beaconsList.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToRegisterBeaconsFromEdit" {
             let temp = (segue.destination as! UINavigationController)
