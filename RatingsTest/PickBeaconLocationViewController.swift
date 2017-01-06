@@ -17,8 +17,6 @@ class PickBeaconLocationViewController: UIViewController, MKMapViewDelegate, CLL
     var indexOnTable: Int = 0
     var currentCoordinates: String = ""
     
-    
-    
     @IBOutlet weak var mapPickBeacon: MKMapView!
     var manager = CLLocationManager()
     var locationCoordinate = CLLocationCoordinate2DMake(0, 0)

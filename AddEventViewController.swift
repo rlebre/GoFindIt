@@ -43,6 +43,7 @@ class AddEventViewController: UITableViewController {
             let temp = (segue.destination as! UINavigationController)
             let dest = temp.topViewController as! RegisterBeaconsTableViewController
             dest.beacons = addedBeacons
+            dest.invoker = "AddViewController"
         }
     }
     

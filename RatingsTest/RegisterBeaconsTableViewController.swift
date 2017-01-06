@@ -10,8 +10,20 @@ import UIKit
 
 class RegisterBeaconsTableViewController: UITableViewController {
 
+    var invoker: String = ""
+    
     var beacons: [String] = []
     var selectedRow: Int = 0
+    
+    @IBAction func donePressed(_ sender: Any) {
+        if invoker == "AddViewController" {
+            performSegue(withIdentifier: "SaveBeaconsAdd", sender: self)
+        }
+        
+        if invoker == "EditViewController" {
+            performSegue(withIdentifier: "SaveBeaconsEdit", sender: self)
+        }
+    }
     
     @IBOutlet var tableVIew: UITableView!
     @IBAction func addButtonPressed(_ sender: Any) {

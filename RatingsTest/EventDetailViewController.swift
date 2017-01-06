@@ -153,7 +153,27 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         return (event?.beaconList.count)!
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRegisterBeaconsFromEdit" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! RegisterBeaconsTableViewController
+            dest.beacons = (event?.beaconList)!
+            dest.invoker = "EditViewController"
+        }
+    }
+    
     @IBAction func cancelToEventDetailViewController(segue:UIStoryboardSegue) {
         
+    }
+    
+    @IBAction func saveBeaconsDetail(segue:UIStoryboardSegue) {
+        if let registerBeaconsViewController = segue.source as? RegisterBeaconsTableViewController {
+            
+            if !registerBeaconsViewController.beacons.isEmpty{
+                wasEditted=true
+                event?.beaconList=registerBeaconsViewController.beacons
+                beaconsList.reloadData()
+            }
+        }
     }
 }

@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1P-6k-LP5" id="hRD-GK-5V9">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-EL-YzZ">
@@ -229,6 +229,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCd-LP-mtZ">
                                                 <rect key="frame" x="270" y="386" width="22" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <segue destination="O0q-hm-Vlu" kind="presentation" identifier="goToRegisterBeaconsFromEdit" id="I0j-9u-Sd8"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -535,7 +538,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vMw-9K-DUz" id="62e-Iv-G2B">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -608,7 +611,7 @@
                     <navigationItem key="navigationItem" title="Register" id="eIS-oP-62f">
                         <barButtonItem key="leftBarButtonItem" systemItem="done" id="m3H-TO-x60">
                             <connections>
-                                <segue destination="ZEW-PH-lnN" kind="unwind" identifier="SaveBeaconsList" unwindAction="saveBeaconsWithSegue:" id="tto-wL-YrN"/>
+                                <action selector="donePressed:" destination="Nht-lP-yQJ" id="3Sa-km-vX5"/>
                             </connections>
                         </barButtonItem>
                         <rightBarButtonItems>
@@ -632,6 +635,8 @@
                     <connections>
                         <outlet property="tableVIew" destination="dRU-0c-sCB" id="QC4-zh-LMF"/>
                         <segue destination="NgP-4f-mq0" kind="presentation" identifier="goToPickBeaconLocation" id="G88-Nt-Py8"/>
+                        <segue destination="ZEW-PH-lnN" kind="unwind" identifier="SaveBeaconsAdd" unwindAction="saveBeaconsWithSegue:" id="CfW-hr-Wub"/>
+                        <segue destination="ZEW-PH-lnN" kind="unwind" identifier="SaveBeaconsEdit" unwindAction="saveBeaconsDetailWithSegue:" id="E2s-8Q-4ft"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hav-Wf-KYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -849,4 +854,7 @@
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="I0j-9u-Sd8"/>
+    </inferredMetricsTieBreakers>
 </document>
