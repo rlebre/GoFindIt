@@ -45,18 +45,20 @@ class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         var index = 0
         for beacon in (event?.beaconList)! {
-            let beaconId = (beacon.characters.split{$0 == "="}.map(String.init))[0]
-            let coordinate = (beacon.characters.split{$0 == "="}.map(String.init))[1]
-            let latitude = (coordinate.characters.split{$0 == ","}.map(String.init))[0]
-            let longitude = (coordinate.characters.split{$0 == ","}.map(String.init))[1]
+            if (beacon.characters.split{$0 == "="}.map(String.init)).count == 2 {
+                let beaconId = (beacon.characters.split{$0 == "="}.map(String.init))[0]
+                let coordinate = (beacon.characters.split{$0 == "="}.map(String.init))[1]
+                let latitude = (coordinate.characters.split{$0 == ","}.map(String.init))[0]
+                let longitude = (coordinate.characters.split{$0 == ","}.map(String.init))[1]
+                
+                let pinLocation = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
             
-            let pinLocation = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
-            
-            let dropPin = MKPointAnnotation()
-            dropPin.coordinate = pinLocation
-            dropPin.title = "\(index) = \(beaconId)"
-            mainMap.addAnnotation(dropPin)
-            index += 1
+                let dropPin = MKPointAnnotation()
+                dropPin.coordinate = pinLocation
+                dropPin.title = "\(index) = \(beaconId)"
+                mainMap.addAnnotation(dropPin)
+                index += 1
+            }
         }
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: (#selector(LetsFindItViewController.updateTime)), userInfo: nil, repeats: true)
