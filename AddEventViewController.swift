@@ -15,6 +15,8 @@ class AddEventViewController: UITableViewController {
     var addedBeacons:[String] = []
     var addedLocation:String = ""
     
+    @IBOutlet weak var labelLocation: UITableViewCell!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -22,6 +24,8 @@ class AddEventViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        labelLocation.detailTextLabel?.text = "Pick Location"
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -64,8 +68,10 @@ class AddEventViewController: UITableViewController {
         if let pickLocationViewController = segue.source as? PickLocationViewController {
             if !pickLocationViewController.currentCity.isEmpty {
                 self.addedLocation = pickLocationViewController.currentCity
+                labelLocation.detailTextLabel?.text = pickLocationViewController.currentCity
             } else {
                 self.addedLocation = pickLocationViewController.currentCoordinates
+                labelLocation.detailTextLabel?.text = pickLocationViewController.currentCoordinates
             }
         }
     }

@@ -107,4 +107,17 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         
         dismiss(animated: true, completion: nil)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToScanQrCode" {
+            let temp = (segue.destination as! QRScannerController)
+            temp.invoker = "LetsFindItViewController"
+        }
+    }
+    
+    @IBAction func qrScanCompleted(segue: UIStoryboardSegue) {
+        if let qrScanner = segue.source as? QRScannerController {
+            print(qrScanner)
+        }
+    }
 }

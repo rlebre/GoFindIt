@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1P-6k-LP5" id="hRD-GK-5V9">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-EL-YzZ">
@@ -362,11 +362,18 @@
                                 <segue destination="c3P-I9-VCb" kind="unwind" unwindAction="cancelToEventDetailViewControllerWithSegue:" id="VYl-dj-OjF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="iwn-Lc-Rn4">
-                            <connections>
-                                <action selector="cameraButtonPressed:" destination="Wm9-LZ-jOX" id="KcK-fM-Zdc"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="camera" id="iwn-Lc-Rn4">
+                                <connections>
+                                    <action selector="cameraButtonPressed:" destination="Wm9-LZ-jOX" id="KcK-fM-Zdc"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Scan" id="dJ9-Jd-rsX">
+                                <connections>
+                                    <segue destination="fIq-j3-RRI" kind="presentation" identifier="goToScanQrCode" id="dCh-32-eYk"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="labelComBeacons" destination="9mc-no-VFH" id="txD-jA-lNO"/>
@@ -432,10 +439,10 @@
                             <tableViewSection headerTitle="Name" id="Erj-bF-bfZ">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="CXG-ta-wTo">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CXG-ta-wTo" id="kS4-hu-Smi">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tKz-jY-tI7">
@@ -457,24 +464,24 @@
                             </tableViewSection>
                             <tableViewSection id="eWs-7x-hZG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lAb-4k-4Ae" detailTextLabel="HvE-1U-vlf" style="IBUITableViewCellStyleValue1" id="yfm-0P-2UI">
-                                        <rect key="frame" x="0.0" y="135.5" width="320" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lAb-4k-4Ae" detailTextLabel="HvE-1U-vlf" style="IBUITableViewCellStyleSubtitle" id="yfm-0P-2UI">
+                                        <rect key="frame" x="0.0" y="136" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfm-0P-2UI" id="ntT-9l-4km">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lAb-4k-4Ae">
-                                                    <rect key="frame" x="15" y="11" width="66" height="21"/>
+                                                    <rect key="frame" x="15" y="4" width="66" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HvE-1U-vlf">
-                                                    <rect key="frame" x="241" y="11" width="44" height="21"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HvE-1U-vlf">
+                                                    <rect key="frame" x="15" y="25" width="33" height="15"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -489,10 +496,10 @@
                             <tableViewSection id="d9X-ox-Nrk">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vnY-kx-g6V" detailTextLabel="4F6-cj-Y6K" style="IBUITableViewCellStyleValue1" id="YUE-Lz-ZVX">
-                                        <rect key="frame" x="0.0" y="215.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="216" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YUE-Lz-ZVX" id="tus-in-f8k">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Beacons" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vnY-kx-g6V">
@@ -536,6 +543,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="labelLocation" destination="yfm-0P-2UI" id="X5L-xS-y8v"/>
                         <outlet property="nameTextField" destination="tKz-jY-tI7" id="y9t-O7-9vk"/>
                     </connections>
                 </tableViewController>
@@ -597,7 +605,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vMw-9K-DUz" id="62e-Iv-G2B">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -812,6 +820,7 @@
                     <connections>
                         <outlet property="topbar" destination="Kh3-p5-oQd" id="uC5-wZ-tRx"/>
                         <segue destination="G5c-Xd-gkb" kind="unwind" identifier="QRReaderDone" unwindAction="unwindToRegisterBeaconsWithSegue:" id="tuI-bE-IDc"/>
+                        <segue destination="G5c-Xd-gkb" kind="unwind" identifier="returnToLetsFindIt" unwindAction="qrScanCompletedWithSegue:" id="H9Y-HD-oUg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-1e-pBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -914,6 +923,7 @@
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I0j-9u-Sd8"/>
+        <segue reference="dCh-32-eYk"/>
+        <segue reference="O51-8u-i2S"/>
     </inferredMetricsTieBreakers>
 </document>
