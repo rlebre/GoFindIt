@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class LetsFindItViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
 
     var event: Event?
     
@@ -20,8 +20,10 @@ class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationM
     @IBOutlet weak var labelComBeacons: UILabel!
     @IBOutlet weak var labelRemainBeacons: UILabel!
     
+    let image = UIImagePickerController()
+    
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        
+        present(image, animated: true, completion: nil)
     }
     
     var manager = CLLocationManager()
@@ -34,12 +36,17 @@ class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationM
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.camera
+        image.allowsEditing = false
+        
         manager = CLLocationManager()
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
-        
         manager.startUpdatingLocation()
+        
         mainMap.mapType = MKMapType.hybrid
         mainMap.showsUserLocation = true
         
@@ -65,6 +72,8 @@ class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationM
         
         labelComBeacons.text = "\((event?.completedBeacons.count)!)"
         labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
+        
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -87,5 +96,15 @@ class LetsFindItViewController: UIViewController, MKMapViewDelegate, CLLocationM
     func updateTime() {
         seconds += 1
         labelTime.text = "\(String(format: "%02d", seconds / 3600)): \(String(format: "%02d", seconds % 3600 / 60)):\(String(format: "%02d",(seconds % 3600) % 60))"
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        /*completion:
+            if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+                self.image_main.image = image
+                event?.mainImage = image
+            }*/
+        
+        dismiss(animated: true, completion: nil)
     }
 }
