@@ -5,6 +5,7 @@
         <attribute name="beaconList" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="completedBeacons" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="completedDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="elapsedTime" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="location" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mainImage" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,6 @@
         <attribute name="rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Events" positionX="-54" positionY="-9" width="128" height="180"/>
+        <element name="Events" positionX="-54" positionY="-9" width="128" height="195"/>
     </elements>
 </model>

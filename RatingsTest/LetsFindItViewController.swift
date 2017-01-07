@@ -49,6 +49,8 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         
         mainMap.mapType = MKMapType.hybrid
         mainMap.showsUserLocation = true
+        seconds = (event?.elapsedTime)!
+        labelTime.text = "\(String(format: "%02d", (event?.elapsedTime)! / 3600)):\(String(format: "%02d", (event?.elapsedTime)! % 3600 / 60)):\(String(format: "%02d",((event?.elapsedTime)! % 3600) % 60))"
         
         var index = 0
         for beacon in (event?.beaconList)! {
@@ -95,7 +97,7 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     
     func updateTime() {
         seconds += 1
-        labelTime.text = "\(String(format: "%02d", seconds / 3600)): \(String(format: "%02d", seconds % 3600 / 60)):\(String(format: "%02d",(seconds % 3600) % 60))"
+        labelTime.text = "\(String(format: "%02d", seconds / 3600)):\(String(format: "%02d", seconds % 3600 / 60)):\(String(format: "%02d",(seconds % 3600) % 60))"
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -112,6 +114,13 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         if segue.identifier == "goToScanQrCode" {
             let temp = (segue.destination as! QRScannerController)
             temp.invoker = "LetsFindItViewController"
+        }else if segue.identifier == "stopEventRunning" {
+            print(seconds)
+            print(event?.elapsedTime)
+            event?.elapsedTime = seconds
+            print(event?.elapsedTime)
+            seconds = 0
+            timer = Timer()
         }
     }
     

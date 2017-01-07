@@ -68,6 +68,22 @@ class EventTableViewController: UITableViewController {
     
     
     @IBAction func cancelToEventTableViewController(segue:UIStoryboardSegue) {
+        if let editEventViewController = segue.source as? EventDetailViewController {
+            
+            if editEventViewController.wasEditted {
+                if let event = editEventViewController.event {
+                    if event.elapsedTime != events[selectedRow].elapsedTime {
+                        events.remove(at: editEventViewController.indexOnTable!)
+                    
+                        removeFromPersistence(id: event.id!)
+                        persistEvent(event: event)
+                        events.append(event)
+                    
+                        tableView.reloadData()
+                    }
+                }
+            }
+        }
     }
     
     @IBAction func saveEventDetail(segue:UIStoryboardSegue) {
@@ -142,8 +158,10 @@ class EventTableViewController: UITableViewController {
                 aux = match.value(forKey:"mainImage") as? String
                 let dataDecoded:NSData = NSData(base64Encoded: aux!, options: .ignoreUnknownCharacters)!
                 let mainImage = UIImage(data: dataDecoded as Data)!
+                
+                let elapsedTime = Int(match.value(forKey:"elapsedTime") as! Int32)
                
-                let event = Event(id: id, name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage)
+                let event = Event(id: id, name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage, elapsedTime: elapsedTime)
                 
                 eventsList.append(event)
             }
@@ -167,6 +185,7 @@ class EventTableViewController: UITableViewController {
         persistEvent.addedDate = event.addedDate
         persistEvent.rating = Int16(event.rating)
         persistEvent.beaconList = event.beaconList.joined(separator: ":")
+        persistEvent.elapsedTime = Int32(event.elapsedTime)
         
         let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData
         

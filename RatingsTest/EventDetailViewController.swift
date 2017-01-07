@@ -19,6 +19,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var label_comp_beacons: UILabel!
     @IBOutlet weak var label_comp_date: UILabel!
     @IBOutlet weak var label_creation_date: UILabel!
+    @IBOutlet weak var label_elapsed_time: UILabel!
     
     @IBOutlet weak var image_main: UIImageView!
     @IBOutlet weak var image_rating: UIImageView!
@@ -42,6 +43,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         label_creation_date.text = event?.addedDate
         label_comp_date.text = event?.completedBeacons.count == event?.beaconList.count ? event?.completedDate : "Go Find It!"
         label_comp_beacons.text = "\(event!.completedBeacons.count)"
+        label_elapsed_time.text = "\(String(format: "%02d", event!.elapsedTime / 3600)):\(String(format: "%02d", event!.elapsedTime % 3600 / 60)):\(String(format: "%02d",(event!.elapsedTime % 3600) % 60))"
         image_rating.image = imageForRating(rating: (event!.rating))
         image_main.image = event?.mainImage
         
@@ -191,6 +193,13 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
                 event?.beaconList=registerBeaconsViewController.beacons
                 beaconsList.reloadData()
             }
+        }
+    }
+    
+    @IBAction func stopEvent(segue:UIStoryboardSegue) {
+        if let letsFindItViewController = segue.source as? LetsFindItViewController {
+            self.event = letsFindItViewController.event
+            wasEditted = true
         }
     }
 }
