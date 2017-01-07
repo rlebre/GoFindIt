@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B310F69B1E1FBF6200089CDB /* LetsFindItViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */; };
+		B33904471E1E966400B94E36 /* PickLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33904461E1E966400B94E36 /* PickLocationViewController.swift */; };
+		B33904491E1EA76200B94E36 /* Reach.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33904481E1EA76200B94E36 /* Reach.swift */; };
+		B339044D1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B339044C1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift */; };
 		B3836D4A1E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */; };
 		B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A63CD51E0945840048537E /* AppDelegate.swift */; };
 		B3A63CD81E0945840048537E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3A63CD71E0945840048537E /* ViewController.swift */; };
@@ -18,7 +22,6 @@
 		B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */; };
 		B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */; };
 		B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35D1E0F0E7900033242 /* Event.swift */; };
-		B3EEE3601E0F102400033242 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35F1E0F102400033242 /* SampleData.swift */; };
 		B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3631E0F382E00033242 /* EventCell.swift */; };
 		B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3671E0F418C00033242 /* AddEventViewController.swift */; };
 		B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */; };
@@ -26,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFindItViewController.swift; sourceTree = "<group>"; };
+		B33904461E1E966400B94E36 /* PickLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickLocationViewController.swift; sourceTree = "<group>"; };
+		B33904481E1EA76200B94E36 /* Reach.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reach.swift; sourceTree = "<group>"; };
+		B339044C1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickBeaconLocationViewController.swift; sourceTree = "<group>"; };
 		B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsWirelessTableViewController.swift; sourceTree = "<group>"; };
 		B3A63CD21E0945840048537E /* RatingsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatingsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A63CD51E0945840048537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +46,6 @@
 		B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventTableViewController.swift; path = ../EventTableViewController.swift; sourceTree = "<group>"; };
 		B3EEE35D1E0F0E7900033242 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		B3EEE35F1E0F102400033242 /* SampleData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		B3EEE3631E0F382E00033242 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventCell.swift; path = ../EventCell.swift; sourceTree = "<group>"; };
 		B3EEE3671E0F418C00033242 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddEventViewController.swift; path = ../AddEventViewController.swift; sourceTree = "<group>"; };
 		B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsTableViewController.swift; sourceTree = "<group>"; };
@@ -82,13 +88,16 @@
 				B3A63CD51E0945840048537E /* AppDelegate.swift */,
 				B3EEE35B1E0F0D9100033242 /* EventTableViewController.swift */,
 				B3EEE3671E0F418C00033242 /* AddEventViewController.swift */,
+				B33904461E1E966400B94E36 /* PickLocationViewController.swift */,
+				B339044C1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift */,
 				B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */,
 				B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */,
 				B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */,
 				B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */,
+				B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */,
 				B3EEE3631E0F382E00033242 /* EventCell.swift */,
 				B3EEE35D1E0F0E7900033242 /* Event.swift */,
-				B3EEE35F1E0F102400033242 /* SampleData.swift */,
+				B33904481E1EA76200B94E36 /* Reach.swift */,
 				B3A63CD91E0945840048537E /* Main.storyboard */,
 				B3A63CDE1E0945840048537E /* LaunchScreen.storyboard */,
 				B3A63CDC1E0945840048537E /* Assets.xcassets */,
@@ -183,12 +192,15 @@
 				B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */,
 				B3A63CD81E0945840048537E /* ViewController.swift in Sources */,
 				B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */,
+				B339044D1E1EFE6300B94E36 /* PickBeaconLocationViewController.swift in Sources */,
 				B3EEE35C1E0F0D9100033242 /* EventTableViewController.swift in Sources */,
-				B3EEE3601E0F102400033242 /* SampleData.swift in Sources */,
 				B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */,
 				B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */,
 				B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */,
 				B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */,
+				B33904471E1E966400B94E36 /* PickLocationViewController.swift in Sources */,
+				B33904491E1EA76200B94E36 /* Reach.swift in Sources */,
+				B310F69B1E1FBF6200089CDB /* LetsFindItViewController.swift in Sources */,
 				B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */,
 				B3B4BE1A1E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld in Sources */,
 			);

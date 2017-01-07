@@ -19,6 +19,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var label_comp_beacons: UILabel!
     @IBOutlet weak var label_comp_date: UILabel!
     @IBOutlet weak var label_creation_date: UILabel!
+    @IBOutlet weak var label_elapsed_time: UILabel!
     
     @IBOutlet weak var image_main: UIImageView!
     @IBOutlet weak var image_rating: UIImageView!
@@ -27,6 +28,9 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     
     let image = UIImagePickerController()
     
+    @IBAction func buttonStartPressed(_ sender: Any) {
+        performSegue(withIdentifier: "goToStartEvent", sender: self)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,6 +43,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         label_creation_date.text = event?.addedDate
         label_comp_date.text = event?.completedBeacons.count == event?.beaconList.count ? event?.completedDate : "Go Find It!"
         label_comp_beacons.text = "\(event!.completedBeacons.count)"
+        label_elapsed_time.text = "\(String(format: "%02d", event!.elapsedTime / 3600)):\(String(format: "%02d", event!.elapsedTime % 3600 / 60)):\(String(format: "%02d",(event!.elapsedTime % 3600) % 60))"
         image_rating.image = imageForRating(rating: (event!.rating))
         image_main.image = event?.mainImage
         
@@ -132,12 +137,69 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
-        cell.textLabel?.text = event?.beaconList[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "BeaconCellDetail", for: indexPath)
+        //let a = (event?.beaconList[indexPath.row])! as String
+        //print(a)
+        let beaconPlusLocation = ((event?.beaconList[indexPath.row])! as String).characters.split{$0 == "="}.map(String.init)
+        
+        if beaconPlusLocation.count == 1 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = "Pick Location Please"
+        }else if beaconPlusLocation.count == 2 {
+            cell.textLabel?.text = beaconPlusLocation[0]
+            cell.detailTextLabel?.text = beaconPlusLocation[1]
+        }
+
+        //cell.textLabel?.text = event?.beaconList[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return (event?.beaconList.count)!
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.delete {
+            event?.beaconList.remove(at: indexPath.row)
+            wasEditted = true
+            beaconsList.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRegisterBeaconsFromEdit" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! RegisterBeaconsTableViewController
+            dest.beacons = (event?.beaconList)!
+            dest.invoker = "EditViewController"
+        }
+        
+        if segue.identifier == "goToStartEvent" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! LetsFindItViewController
+            dest.event = event
+        }
+    }
+    
+    @IBAction func cancelToEventDetailViewController(segue:UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func saveBeaconsDetail(segue:UIStoryboardSegue) {
+        if let registerBeaconsViewController = segue.source as? RegisterBeaconsTableViewController {
+            
+            if !registerBeaconsViewController.beacons.isEmpty{
+                wasEditted=true
+                event?.beaconList=registerBeaconsViewController.beacons
+                beaconsList.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func stopEvent(segue:UIStoryboardSegue) {
+        if let letsFindItViewController = segue.source as? LetsFindItViewController {
+            self.event = letsFindItViewController.event
+            wasEditted = true
+        }
     }
 }

@@ -11,6 +11,7 @@ import AVFoundation
 
 class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
+    var invoker: String = ""
     var qr: String = ""
     var hadRead: Bool = false
     var captureSession:AVCaptureSession?
@@ -100,7 +101,13 @@ class QRScannerController: UIViewController, AVCaptureMetadataOutputObjectsDeleg
             if metadataObj.stringValue != nil {
                 captureSession?.stopRunning()
                 qr = metadataObj.stringValue
-                performSegue(withIdentifier: "QRReaderDone", sender: nil)
+                
+                if self.invoker == "LetsFindItViewController" {
+                    performSegue(withIdentifier: "returnToLetsFindIt", sender: self)
+                } else {
+                    performSegue(withIdentifier: "QRReaderDone", sender: nil)
+                }
+                
                 //dismiss(animated: true, completion: nil)
             }
         }
