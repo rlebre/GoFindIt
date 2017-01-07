@@ -23,6 +23,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     
     @IBOutlet weak var image_main: UIImageView!
     @IBOutlet weak var image_rating: UIImageView!
+    var image_main_base64: String = ""
     
     @IBOutlet weak var beaconsList: UITableView!
     
@@ -132,8 +133,14 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
                 self.image_main.image = image
                 event?.mainImage = image
             }
+      
+        DispatchQueue.global(qos: .background).async {
+            let imageData = UIImagePNGRepresentation((self.event?.mainImage)!)! as NSData
+            self.image_main_base64 = imageData.base64EncodedString(options: .lineLength64Characters)
+            print("conversion done")
+        }
         
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

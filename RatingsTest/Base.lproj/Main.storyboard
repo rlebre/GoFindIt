@@ -257,11 +257,17 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQv-6l-At7">
                                         <rect key="frame" x="224" y="26" width="88" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <state key="normal" title="Start"/>
                                         <connections>
                                             <action selector="buttonStartPressed:" destination="TCq-Qr-7qN" eventType="touchUpInside" id="h6H-dn-hXZ"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I3d-Yb-SAk">
+                                        <rect key="frame" x="26" y="26" width="65" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                        <state key="normal" title="Photos"/>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -309,7 +315,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3J-mV-NKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wUF-20-IAB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2782.5" y="868.30985915492954"/>
+            <point key="canvasLocation" x="2029" y="1667"/>
         </scene>
         <!--Event Running-->
         <scene sceneID="tD0-vw-bwQ">
@@ -401,7 +407,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aq-YY-o5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="c3P-I9-VCb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4560" y="868.30985915492954"/>
+            <point key="canvasLocation" x="4095" y="1667"/>
         </scene>
         <!--Pick Location-->
         <scene sceneID="ZD4-OX-j3H">
@@ -441,7 +447,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tng-JD-49G" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BH0-QL-aLI" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5064.375" y="-575.70422535211264"/>
+            <point key="canvasLocation" x="5016" y="-789"/>
         </scene>
         <!--Add Event-->
         <scene sceneID="QCp-ph-V8f">
@@ -606,7 +612,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WrV-0K-qND" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dOF-Uf-yvc" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6615" y="-576.76056338028172"/>
+            <point key="canvasLocation" x="6615" y="130"/>
         </scene>
         <!--Select please-->
         <scene sceneID="QEO-ex-6Va">
@@ -650,7 +656,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85J-T6-1jQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="F3z-jk-IFq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="6615" y="130"/>
+            <point key="canvasLocation" x="6615" y="866"/>
         </scene>
         <!--Register-->
         <scene sceneID="MJp-Qm-bfI">
@@ -725,7 +731,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hav-Wf-KYr" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZEW-PH-lnN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5068" y="130"/>
+            <point key="canvasLocation" x="5016" y="868"/>
         </scene>
         <!--Navigator Initial-->
         <scene sceneID="Oqv-uL-WKX">
@@ -779,7 +785,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKm-hw-Q22" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4333" y="130"/>
+            <point key="canvasLocation" x="3564" y="869"/>
         </scene>
         <!--Scanner Controller-->
         <scene sceneID="0y4-Dj-Ckh">
@@ -842,7 +848,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-1e-pBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G5c-Xd-gkb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5828" y="868"/>
+            <point key="canvasLocation" x="5016" y="1667"/>
         </scene>
         <!--Navigator EventTableToEdit-->
         <scene sceneID="iE3-t1-Cg1">
@@ -878,7 +884,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFn-Z8-jdy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5829" y="130"/>
+            <point key="canvasLocation" x="5904" y="867"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zG9-tC-r5A">
@@ -896,7 +902,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc7-96-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3562.5" y="868.30985915492954"/>
+            <point key="canvasLocation" x="3131" y="1667"/>
         </scene>
         <!--PickLocNavigationController-->
         <scene sceneID="DQc-C8-DCX">
@@ -914,7 +920,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUi-X1-77h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4329.375" y="-575.70422535211264"/>
+            <point key="canvasLocation" x="4206" y="-789"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Ftk-P4-AXi">
@@ -932,14 +938,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jzq-0e-6MB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5828" y="-576"/>
+            <point key="canvasLocation" x="5903" y="130"/>
         </scene>
     </scenes>
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="I0j-9u-Sd8"/>
-        <segue reference="dCh-32-eYk"/>
+        <segue reference="O51-8u-i2S"/>
+        <segue reference="V9j-zW-zIo"/>
     </inferredMetricsTieBreakers>
 </document>

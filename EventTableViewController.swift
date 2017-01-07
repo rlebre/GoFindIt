@@ -76,7 +76,7 @@ class EventTableViewController: UITableViewController {
                         events.remove(at: editEventViewController.indexOnTable!)
                     
                         removeFromPersistence(id: event.id!)
-                        persistEvent(event: event)
+                        persistEvent(event: event, mainImageBase64: "")
                         events.append(event)
                     
                         tableView.reloadData()
@@ -91,7 +91,7 @@ class EventTableViewController: UITableViewController {
             
             //add the new event to the events array and write it on storage
             if let event = addEventViewController.event {
-                persistEvent(event: event)
+                persistEvent(event: event, mainImageBase64: "")
                 
                 events.append(event)
                 mainTableView.reloadData()
@@ -105,7 +105,7 @@ class EventTableViewController: UITableViewController {
                     events.remove(at: editEventViewController.indexOnTable!)
 
                     removeFromPersistence(id: event.id!)
-                    persistEvent(event: event)
+                    persistEvent(event: event, mainImageBase64: editEventViewController.image_main_base64)
                     events.append(event)
                     
                     tableView.reloadData()
@@ -173,7 +173,7 @@ class EventTableViewController: UITableViewController {
         return eventsList
     }
 
-    func persistEvent(event: Event) {
+    func persistEvent(event: Event, mainImageBase64:String) {
         let entityDescription = NSEntityDescription.entity(forEntityName: "Events", in: managedObjectContext)
         let persistEvent = Events(entity: entityDescription!, insertInto: managedObjectContext)
         
@@ -187,11 +187,13 @@ class EventTableViewController: UITableViewController {
         persistEvent.beaconList = event.beaconList.joined(separator: ":")
         persistEvent.elapsedTime = Int32(event.elapsedTime)
         
-        let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData
-        
-        let imageStr = imageData.base64EncodedString(options: .lineLength64Characters)
-        persistEvent.mainImage = imageStr
-        
+        if mainImageBase64 == "" {
+            let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData
+            let imageStr = imageData.base64EncodedString(options: .lineLength64Characters)
+            persistEvent.mainImage = imageStr
+        } else {
+            persistEvent.mainImage = mainImageBase64
+        }
         
         do {
             try managedObjectContext.save()
