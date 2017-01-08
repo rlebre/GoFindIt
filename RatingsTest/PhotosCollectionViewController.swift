@@ -42,8 +42,8 @@ class PhotosCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
     
-        let reference = images[indexPath.row].characters.split{$0 == ":"}.map(String.init)[0]
-        print(images[indexPath.row].characters.split{$0 == ":"}.map(String.init)[1])
+        let reference = images[indexPath.row].characters.split{$0 == "="}.map(String.init)[0]
+        print(images[indexPath.row].characters.split{$0 == "="}.map(String.init)[1])
         cell.photo.image = getImage(imageName: reference)
     
         return cell

@@ -155,13 +155,16 @@ class EventTableViewController: UITableViewController {
                 aux = match.value(forKey:"completedBeacons") as? String
                 let completedBeacons = aux?.characters.split{$0 == ":"}.map(String.init)
                 
+                aux = match.value(forKey:"photoReferences") as? String
+                let photoReferences = aux?.characters.split{$0 == ":"}.map(String.init)
+                
                 aux = match.value(forKey:"mainImage") as? String
                 let dataDecoded:NSData = NSData(base64Encoded: aux!, options: .ignoreUnknownCharacters)!
                 let mainImage = UIImage(data: dataDecoded as Data)!
                 
                 let elapsedTime = Int(match.value(forKey:"elapsedTime") as! Int32)
                
-                let event = Event(id: id, name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage, elapsedTime: elapsedTime)
+                let event = Event(id: id, name: name, location: location, addedDate: addedDate, completedDate: completedDate, rating: Int(rating)!, beaconList: beaconList!, completedBeacons: completedBeacons!, mainImage: mainImage, elapsedTime: elapsedTime, photoReferences: photoReferences!)
                 
                 eventsList.append(event)
             }
@@ -186,6 +189,7 @@ class EventTableViewController: UITableViewController {
         persistEvent.rating = Int16(event.rating)
         persistEvent.beaconList = event.beaconList.joined(separator: ":")
         persistEvent.elapsedTime = Int32(event.elapsedTime)
+        persistEvent.photoReferences = event.photosReferences.joined(separator: ":")
         
         if mainImageBase64 == "" {
             let imageData = UIImagePNGRepresentation(event.mainImage)! as NSData

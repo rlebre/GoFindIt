@@ -140,6 +140,6 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         print(paths)
         let imageData = UIImageJPEGRepresentation(image, 0.5)
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
-        self.event?.photosReferences.append(imageUUID + ":" + "\(self.currentLatitude),\(self.currentLongitude)")
+        self.event?.photosReferences.append(imageUUID + "=" + "\(self.currentLatitude),\(self.currentLongitude)")
     }
 }
