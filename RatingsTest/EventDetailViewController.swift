@@ -57,6 +57,8 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         mainImageTap.numberOfTapsRequired = 1
         image_main.isUserInteractionEnabled = true
         image_main.addGestureRecognizer(mainImageTap)
+        
+        createDirectory(eventID: (event?.id)!)
     }
 
     override func didReceiveMemoryWarning() {
@@ -179,12 +181,14 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             let dest = temp.topViewController as! RegisterBeaconsTableViewController
             dest.beacons = (event?.beaconList)!
             dest.invoker = "EditViewController"
-        }
-        
-        if segue.identifier == "goToStartEvent" {
+        }else if segue.identifier == "goToStartEvent" {
             let temp = (segue.destination as! UINavigationController)
             let dest = temp.topViewController as! LetsFindItViewController
             dest.event = event
+        }else if segue.identifier == "goToShowPictures" {
+            let dest = segue.destination as! PhotosCollectionViewController
+            dest.images = (event?.photosReferences)!
+            dest.eventId = (event?.id)!
         }
     }
     
@@ -207,6 +211,16 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         if let letsFindItViewController = segue.source as? LetsFindItViewController {
             self.event = letsFindItViewController.event
             wasEditted = true
+        }
+    }
+    
+    func createDirectory(eventID: String){
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(eventID)
+        if !fileManager.fileExists(atPath: paths){
+            try! fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
+        }else{
+            print("Already dictionary created.")
         }
     }
 }

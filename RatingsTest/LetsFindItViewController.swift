@@ -20,6 +20,9 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     @IBOutlet weak var labelComBeacons: UILabel!
     @IBOutlet weak var labelRemainBeacons: UILabel!
     
+    var  currentLatitude:CLLocationDegrees = 0.0
+    var currentLongitude:CLLocationDegrees = 0.0
+    
     let image = UIImagePickerController()
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
@@ -74,8 +77,6 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         
         labelComBeacons.text = "\((event?.completedBeacons.count)!)"
         labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
-        
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -85,12 +86,12 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         manager.stopUpdatingLocation() // ESTA A PARAR DE OBTER A POSICAO!!!!!
         let userLocation:CLLocation = locations[0]
-        let latitude:CLLocationDegrees = userLocation.coordinate.latitude
-        let longitude:CLLocationDegrees = userLocation.coordinate.longitude
+        self.currentLatitude = userLocation.coordinate.latitude
+        self.currentLongitude = userLocation.coordinate.longitude
         let latDelta:CLLocationDegrees = 0.05
         let lonDelta:CLLocationDegrees = 0.05
         let span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, lonDelta)
-        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        let location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(self.currentLatitude, self.currentLongitude)
         let region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
         mainMap.setRegion(region, animated: false)
     }
@@ -101,11 +102,16 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        /*completion:
+        completion:
             if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-                self.image_main.image = image
-                event?.mainImage = image
-            }*/
+            /*let documentsDirectory = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first! as? String
+                // self.fileName is whatever the filename that you need to append to base directory here.
+                let path = documentsDirectory.stringByAppendingPathComponent(self.fileName)
+                let success = data.writeToFile(path, atomically: true)
+                if !success { // handle error
+                }*/
+                saveImageDocumentDirectory(image: image)
+            }
         
         dismiss(animated: true, completion: nil)
     }
@@ -115,10 +121,7 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
             let temp = (segue.destination as! QRScannerController)
             temp.invoker = "LetsFindItViewController"
         }else if segue.identifier == "stopEventRunning" {
-            print(seconds)
-            print(event?.elapsedTime)
             event?.elapsedTime = seconds
-            print(event?.elapsedTime)
             seconds = 0
             timer = Timer()
         }
@@ -128,5 +131,15 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         if let qrScanner = segue.source as? QRScannerController {
             print(qrScanner)
         }
+    }
+    
+    func saveImageDocumentDirectory(image: UIImage){
+        let fileManager = FileManager.default
+        let imageUUID = "IMG_" + NSUUID().uuidString
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent((event?.id)! + "/" + imageUUID)
+        print(paths)
+        let imageData = UIImageJPEGRepresentation(image, 0.5)
+        fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
+        self.event?.photosReferences.append(imageUUID + ":" + "\(self.currentLatitude),\(self.currentLongitude)")
     }
 }

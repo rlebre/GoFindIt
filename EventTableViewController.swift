@@ -195,10 +195,13 @@ class EventTableViewController: UITableViewController {
             persistEvent.mainImage = mainImageBase64
         }
         
-        do {
-            try managedObjectContext.save()
-        } catch let error {
-            NSLog("ERROR", error.localizedDescription)
+        DispatchQueue.global(qos: .background).async {
+            do {
+                try self.managedObjectContext.save()
+            } catch let error {
+                NSLog("ERROR", error.localizedDescription)
+            }
+            print("Object saved!")
         }
     }
     

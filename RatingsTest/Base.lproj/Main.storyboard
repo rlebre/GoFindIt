@@ -268,6 +268,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <state key="normal" title="Photos"/>
+                                        <connections>
+                                            <segue destination="EXK-R8-6WO" kind="show" identifier="goToShowPictures" id="unu-AG-ZCQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -316,6 +319,49 @@
                 <exit id="wUF-20-IAB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2029" y="1667"/>
+        </scene>
+        <!--Photo Collection-->
+        <scene sceneID="CZc-Kz-6MH">
+            <objects>
+                <collectionViewController title="Photo Collection" id="EXK-R8-6WO" customClass="PhotosCollectionViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="lpy-JA-xTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCN-1F-28Q">
+                            <size key="itemSize" width="145" height="145"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="coH-la-Sc6" customClass="PhotoCell" customModule="RatingsTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-Nj-p0l">
+                                            <rect key="frame" x="8" y="8" width="129" height="129"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="photo" destination="AVn-Nj-p0l" id="sEu-v1-NbI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EXK-R8-6WO" id="0TP-Za-c55"/>
+                            <outlet property="delegate" destination="EXK-R8-6WO" id="fOD-R4-YcN"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9O9-d0-P5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950.625" y="1666.9014084507041"/>
         </scene>
         <!--Event Running-->
         <scene sceneID="tD0-vw-bwQ">
@@ -945,7 +991,7 @@
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O51-8u-i2S"/>
+        <segue reference="I0j-9u-Sd8"/>
         <segue reference="V9j-zW-zIo"/>
     </inferredMetricsTieBreakers>
 </document>
