@@ -45,7 +45,7 @@
 		B3A63CDA1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3A63CDC1E0945840048537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A63CDF1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/rui/Documents/CM/RatingsTest/RatingsTest/Info.plist; sourceTree = "<absolute>"; };
+		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/rui/Documents/CM/RatingsTest/GoFindIt/Info.plist; sourceTree = "<absolute>"; };
 		B3B4BE191E1D68E4000D1AF0 /* goFindItModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = goFindItModel.xcdatamodel; sourceTree = "<group>"; };
 		B3B4BE1C1E1D6907000D1AF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -113,8 +113,7 @@
 				B3A63CE11E0945840048537E /* Info.plist */,
 				B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */,
 			);
-			name = GoFindIt;
-			path = RatingsTest;
+			path = GoFindIt;
 			sourceTree = "<group>";
 		};
 		B3B4BE1B1E1D6906000D1AF0 /* Frameworks */ = {
@@ -337,7 +336,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
-				INFOPLIST_FILE = RatingsTest/Info.plist;
+				INFOPLIST_FILE = GoFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -350,7 +349,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
-				INFOPLIST_FILE = RatingsTest/Info.plist;
+				INFOPLIST_FILE = GoFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
