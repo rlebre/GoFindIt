@@ -20,9 +20,9 @@ struct Event {
     var beaconList: [String]
     var mainImage: UIImage
     var elapsedTime: Int
+    var photosReferences: [String]
     
-    
-    init(id:String?, name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], elapsedTime: Int) {
+    init(id:String?, name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], elapsedTime: Int, photoReferences: [String]) {
         self.id = id
         self.name = name
         self.location = location
@@ -33,10 +33,11 @@ struct Event {
         self.beaconList = beaconList
         self.mainImage = UIImage()
         self.elapsedTime = elapsedTime
+        photosReferences = photoReferences
         self.mainImage = self.resizeImage(image: UIImage(named: "tap_to_load")!, newWidth: CGFloat(100))
     }
     
-    init(id:String?, name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], completedBeacons:[String], mainImage:UIImage, elapsedTime: Int) {
+    init(id:String?, name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], completedBeacons:[String], mainImage:UIImage, elapsedTime: Int, photoReferences: [String]) {
         self.id = id
         self.name = name
         self.location = location
@@ -47,10 +48,11 @@ struct Event {
         self.beaconList = beaconList
         self.mainImage = UIImage()
         self.elapsedTime = elapsedTime
+        photosReferences = photoReferences
         self.mainImage = self.resizeImage(image: mainImage, newWidth: CGFloat(100))
     }
     
-    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], elapsedTime: Int) {
+    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], elapsedTime: Int, photoReferences: [String]) {
         self.id = NSUUID().uuidString
         self.name = name
         self.location = location
@@ -61,10 +63,11 @@ struct Event {
         self.beaconList = beaconList
         self.mainImage = UIImage()
         self.elapsedTime = elapsedTime
+        photosReferences = photoReferences
         self.mainImage = self.resizeImage(image: UIImage(named: "tap_to_load")!, newWidth: CGFloat(100))
     }
     
-    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], completedBeacons:[String], mainImage:UIImage, elapsedTime: Int) {
+    init(name: String?, location: String?, addedDate: String?, completedDate: String?, rating: Int, beaconList:[String], completedBeacons:[String], mainImage:UIImage, elapsedTime: Int, photoReferences: [String]) {
         self.id = NSUUID().uuidString
         self.name = name
         self.location = location
@@ -75,6 +78,7 @@ struct Event {
         self.beaconList = beaconList
         self.mainImage = UIImage()
         self.elapsedTime = elapsedTime
+        photosReferences = photoReferences
         self.mainImage = self.resizeImage(image: mainImage, newWidth: CGFloat(100))
     }
     

@@ -8,6 +8,8 @@
 
 import UIKit
 
+var firstTime:Bool = true
+
 class EventDetailViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITableViewDataSource, UITableViewDelegate {
 
     var event: Event?
@@ -25,12 +27,21 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var image_rating: UIImageView!
     var image_main_base64: String = ""
     
+    @IBOutlet weak var buttonEditBeaconList: UIButton!
     @IBOutlet weak var beaconsList: UITableView!
+    
     
     let image = UIImagePickerController()
     
     @IBAction func buttonStartPressed(_ sender: Any) {
-        performSegue(withIdentifier: "goToStartEvent", sender: self)
+        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 {
+            let alert = UIAlertController(title: "Info", message: "You have already completed the event.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            performSegue(withIdentifier: "goToStartEvent", sender: self)
+        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +68,12 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         mainImageTap.numberOfTapsRequired = 1
         image_main.isUserInteractionEnabled = true
         image_main.addGestureRecognizer(mainImageTap)
+        
+        createDirectory(eventID: (event?.id)!)
+        
+        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 {
+            buttonEditBeaconList.isEnabled = false
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -179,12 +196,16 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             let dest = temp.topViewController as! RegisterBeaconsTableViewController
             dest.beacons = (event?.beaconList)!
             dest.invoker = "EditViewController"
-        }
-        
-        if segue.identifier == "goToStartEvent" {
+        }else if segue.identifier == "goToStartEvent" {
             let temp = (segue.destination as! UINavigationController)
             let dest = temp.topViewController as! LetsFindItViewController
             dest.event = event
+        }else if segue.identifier == "goToShowPictures" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! PhotosCollectionViewController
+            //let dest = segue.destination as! PhotosCollectionViewController
+            dest.images = (event?.photosReferences)!
+            dest.eventId = (event?.id)!
         }
     }
     
@@ -203,10 +224,56 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         }
     }
     
+    @IBAction func savePhotoReferences(segue:UIStoryboardSegue) {
+        if let photosCollectionViewController = segue.source as? PhotosCollectionViewController {
+            
+            if photosCollectionViewController.images.count != event?.photosReferences.count {
+                wasEditted = true
+                event?.photosReferences = photosCollectionViewController.images
+            }
+        }
+    }
+    
     @IBAction func stopEvent(segue:UIStoryboardSegue) {
         if let letsFindItViewController = segue.source as? LetsFindItViewController {
             self.event = letsFindItViewController.event
             wasEditted = true
+            label_name.text = event?.name
+            label_location.text = event?.location
+            label_creation_date.text = event?.addedDate
+            label_comp_date.text = event?.completedBeacons.count == event?.beaconList.count ? event?.completedDate : "Go Find It!"
+            label_comp_beacons.text = "\(event!.completedBeacons.count)"
+            label_elapsed_time.text = "\(String(format: "%02d", event!.elapsedTime / 3600)):\(String(format: "%02d", event!.elapsedTime % 3600 / 60)):\(String(format: "%02d",(event!.elapsedTime % 3600) % 60))"
+
+            if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 {
+                let alert = UIAlertController(title: "Info", message: "You have already completed the event.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+                }))
+                self.present(alert, animated: true, completion: nil)
+
+            }
+        }
+    }
+    
+    func createDirectory(eventID: String){
+        let fileManager = FileManager.default
+        let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(eventID)
+        if !fileManager.fileExists(atPath: paths){
+            try! fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
+        }else{
+            print("Already dictionary created.")
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
+            let alert = UIAlertController(title: "Congratulations!", message: "You have completed event. You found it all!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+ 
+            }))
+ 
+            self.present(alert, animated: true, completion: nil)
+            firstTime = false
         }
     }
 }

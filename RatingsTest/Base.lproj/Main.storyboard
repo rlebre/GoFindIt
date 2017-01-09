@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Event Table View Controller-->
+        <!--GoFindIt!-->
         <scene sceneID="PFo-Sf-6rz">
             <objects>
                 <tableViewController id="h1X-hh-Odg" customClass="EventTableViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -24,7 +24,7 @@
                                 <rect key="frame" x="0.0" y="28" width="320" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="O1P-6k-LP5" id="hRD-GK-5V9">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="59"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="bV4-EL-YzZ">
@@ -83,7 +83,7 @@
                             <outlet property="delegate" destination="h1X-hh-Odg" id="0t0-xZ-5Hb"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="eTF-MS-RUd">
+                    <navigationItem key="navigationItem" title="GoFindIt!" id="eTF-MS-RUd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="asM-iT-PRY">
                             <connections>
                                 <segue destination="Vap-bg-Cpr" kind="presentation" id="wfI-di-dgz"/>
@@ -99,7 +99,7 @@
             </objects>
             <point key="canvasLocation" x="2028.75" y="129.92957746478874"/>
         </scene>
-        <!--Event Detail View Controller-->
+        <!--Event Details-->
         <scene sceneID="sJ9-oN-nxl">
             <objects>
                 <viewController id="TCq-Qr-7qN" customClass="EventDetailViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
@@ -268,6 +268,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
                                         <state key="normal" title="Photos"/>
+                                        <connections>
+                                            <segue destination="Mjl-On-qPd" kind="presentation" identifier="goToShowPictures" id="unu-AG-ZCQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -287,7 +290,7 @@
                             <constraint firstItem="LlQ-31-c3Q" firstAttribute="bottom" secondItem="7vT-xx-ME8" secondAttribute="top" id="lLM-FZ-Azw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fnv-FO-uSd">
+                    <navigationItem key="navigationItem" title="Event Details" id="fnv-FO-uSd">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="i81-Fw-4cQ">
                             <connections>
                                 <segue destination="wUF-20-IAB" kind="unwind" unwindAction="cancelToEventTableViewControllerWithSegue:" id="wY2-oR-Vaq"/>
@@ -301,6 +304,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="beaconsList" destination="sSF-uN-LVl" id="RfI-3i-fZV"/>
+                        <outlet property="buttonEditBeaconList" destination="zCd-LP-mtZ" id="6CG-Ch-3H2"/>
                         <outlet property="image_main" destination="oF2-2n-wY4" id="guX-IL-Ey3"/>
                         <outlet property="image_rating" destination="9e4-tx-6U7" id="Q9Y-mq-l1X"/>
                         <outlet property="label_comp_beacons" destination="rj9-sZ-Tk6" id="d1A-f6-lcB"/>
@@ -315,7 +319,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3J-mV-NKO" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wUF-20-IAB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2029" y="1667"/>
+            <point key="canvasLocation" x="3026.25" y="1666.9014084507041"/>
+        </scene>
+        <!--Photo Collection-->
+        <scene sceneID="CZc-Kz-6MH">
+            <objects>
+                <collectionViewController title="Photo Collection" id="EXK-R8-6WO" customClass="PhotosCollectionViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lpy-JA-xTs">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCN-1F-28Q">
+                            <size key="itemSize" width="145" height="145"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="coH-la-Sc6" customClass="PhotoCell" customModule="RatingsTest" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="145" height="145"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AVn-Nj-p0l">
+                                            <rect key="frame" x="8" y="8" width="129" height="129"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </view>
+                                <connections>
+                                    <outlet property="photo" destination="AVn-Nj-p0l" id="sEu-v1-NbI"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="EXK-R8-6WO" id="0TP-Za-c55"/>
+                            <outlet property="delegate" destination="EXK-R8-6WO" id="fOD-R4-YcN"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="Photo Collection" id="Cjd-Rp-zhl">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="h5G-zb-C2d">
+                            <connections>
+                                <segue destination="WXD-QY-gqw" kind="unwind" unwindAction="cancelToEventDetailViewControllerWithSegue:" id="4J0-Ju-qar"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="done" id="RCY-5O-q4N">
+                                <connections>
+                                    <segue destination="WXD-QY-gqw" kind="unwind" unwindAction="savePhotoReferencesWithSegue:" id="7ND-ZN-xPF"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Map" id="AKC-2z-M7b">
+                                <connections>
+                                    <segue destination="ecQ-2x-6kC" kind="show" identifier="goToPhotoMap" id="UqJ-kj-0sQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9O9-d0-P5z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="WXD-QY-gqw" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4127" y="2395"/>
+        </scene>
+        <!--Photo Map-->
+        <scene sceneID="d9c-Xt-MAo">
+            <objects>
+                <viewController title="Photo Map" id="ecQ-2x-6kC" customClass="PhotoMapViewController" customModule="RatingsTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JqQ-P7-KOI"/>
+                        <viewControllerLayoutGuide type="bottom" id="dVv-Ru-qvR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="e4G-qu-Ohu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="faw-WT-pfb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="photoMap" destination="faw-WT-pfb" id="FFc-yP-ixo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gtN-RS-Icb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5092.5" y="2394.7183098591549"/>
         </scene>
         <!--Event Running-->
         <scene sceneID="tD0-vw-bwQ">
@@ -407,7 +501,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9aq-YY-o5g" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="c3P-I9-VCb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4095" y="1667"/>
+            <point key="canvasLocation" x="5092.5" y="1666.9014084507041"/>
         </scene>
         <!--Pick Location-->
         <scene sceneID="ZD4-OX-j3H">
@@ -460,7 +554,7 @@
                         <sections>
                             <tableViewSection headerTitle="Name" id="Erj-bF-bfZ">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="CXG-ta-wTo">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddEventNameCell" id="CXG-ta-wTo">
                                         <rect key="frame" x="0.0" y="56" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CXG-ta-wTo" id="kS4-hu-Smi">
@@ -486,7 +580,7 @@
                             </tableViewSection>
                             <tableViewSection id="eWs-7x-hZG">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="lAb-4k-4Ae" detailTextLabel="HvE-1U-vlf" style="IBUITableViewCellStyleSubtitle" id="yfm-0P-2UI">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddEventLocCell" textLabel="lAb-4k-4Ae" detailTextLabel="HvE-1U-vlf" style="IBUITableViewCellStyleSubtitle" id="yfm-0P-2UI">
                                         <rect key="frame" x="0.0" y="136" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yfm-0P-2UI" id="ntT-9l-4km">
@@ -517,7 +611,7 @@
                             </tableViewSection>
                             <tableViewSection id="d9X-ox-Nrk">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="vnY-kx-g6V" detailTextLabel="4F6-cj-Y6K" style="IBUITableViewCellStyleValue1" id="YUE-Lz-ZVX">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="AddEventBeaconCell" textLabel="vnY-kx-g6V" detailTextLabel="4F6-cj-Y6K" style="IBUITableViewCellStyleValue1" id="YUE-Lz-ZVX">
                                         <rect key="frame" x="0.0" y="216" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YUE-Lz-ZVX" id="tus-in-f8k">
@@ -623,11 +717,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" id="vMw-9K-DUz">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="FoundBeaconCell" id="vMw-9K-DUz">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vMw-9K-DUz" id="62e-Iv-G2B">
-                                    <rect key="frame" x="0.0" y="0.0" width="281" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="281" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -848,7 +942,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofj-1e-pBm" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="G5c-Xd-gkb" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5016" y="1667"/>
+            <point key="canvasLocation" x="6013.125" y="1666.9014084507041"/>
         </scene>
         <!--Navigator EventTableToEdit-->
         <scene sceneID="iE3-t1-Cg1">
@@ -902,7 +996,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc7-96-TfM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3131" y="1667"/>
+            <point key="canvasLocation" x="4126.875" y="1666.9014084507041"/>
         </scene>
         <!--PickLocNavigationController-->
         <scene sceneID="DQc-C8-DCX">
@@ -940,12 +1034,30 @@
             </objects>
             <point key="canvasLocation" x="5903" y="130"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eY3-dH-Kjl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Mjl-On-qPd" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tVo-LF-agQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EXK-R8-6WO" kind="relationship" relationship="rootViewController" id="qQR-AM-sf3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n2L-FX-mPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3026" y="2395"/>
+        </scene>
     </scenes>
     <resources>
         <image name="cross" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O51-8u-i2S"/>
-        <segue reference="V9j-zW-zIo"/>
+        <segue reference="I0j-9u-Sd8"/>
+        <segue reference="dCh-32-eYk"/>
     </inferredMetricsTieBreakers>
 </document>
