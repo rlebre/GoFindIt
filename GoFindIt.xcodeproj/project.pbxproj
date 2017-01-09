@@ -19,7 +19,7 @@
 		B3A63CDB1E0945840048537E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CD91E0945840048537E /* Main.storyboard */; };
 		B3A63CDD1E0945840048537E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CDC1E0945840048537E /* Assets.xcassets */; };
 		B3A63CE01E0945840048537E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3A63CDE1E0945840048537E /* LaunchScreen.storyboard */; };
-		B3B4BE1A1E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */; };
+		B3B4BE1A1E1D68E4000D1AF0 /* GoFindItModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B3B4BE181E1D68E4000D1AF0 /* GoFindItModel.xcdatamodeld */; };
 		B3B4BE1D1E1D6907000D1AF0 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3B4BE1C1E1D6907000D1AF0 /* CoreData.framework */; };
 		B3E7848F1E13D8F300FA3608 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */; };
 		B3EBBB871E23ACAB002CC0A6 /* PhotoMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EBBB861E23ACAB002CC0A6 /* PhotoMapViewController.swift */; };
@@ -46,7 +46,7 @@
 		B3A63CDC1E0945840048537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A63CDF1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/rui/Documents/CM/RatingsTest/GoFindIt/Info.plist; sourceTree = "<absolute>"; };
-		B3B4BE191E1D68E4000D1AF0 /* goFindItModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = goFindItModel.xcdatamodel; sourceTree = "<group>"; };
+		B3B4BE191E1D68E4000D1AF0 /* GoFindItModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoFindItModel.xcdatamodel; sourceTree = "<group>"; };
 		B3B4BE1C1E1D6907000D1AF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		B3EBBB861E23ACAB002CC0A6 /* PhotoMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoMapViewController.swift; sourceTree = "<group>"; };
@@ -111,7 +111,7 @@
 				B3A63CDE1E0945840048537E /* LaunchScreen.storyboard */,
 				B3A63CDC1E0945840048537E /* Assets.xcassets */,
 				B3A63CE11E0945840048537E /* Info.plist */,
-				B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */,
+				B3B4BE181E1D68E4000D1AF0 /* GoFindItModel.xcdatamodeld */,
 			);
 			path = GoFindIt;
 			sourceTree = "<group>";
@@ -214,7 +214,7 @@
 				B33904491E1EA76200B94E36 /* Reach.swift in Sources */,
 				B310F69B1E1FBF6200089CDB /* LetsFindItViewController.swift in Sources */,
 				B3A63CD61E0945840048537E /* AppDelegate.swift in Sources */,
-				B3B4BE1A1E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld in Sources */,
+				B3B4BE1A1E1D68E4000D1AF0 /* GoFindItModel.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,14 +381,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */ = {
+		B3B4BE181E1D68E4000D1AF0 /* GoFindItModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				B3B4BE191E1D68E4000D1AF0 /* goFindItModel.xcdatamodel */,
+				B3B4BE191E1D68E4000D1AF0 /* GoFindItModel.xcdatamodel */,
 			);
-			currentVersion = B3B4BE191E1D68E4000D1AF0 /* goFindItModel.xcdatamodel */;
-			name = goFindItModel.xcdatamodeld;
-			path = ../goFindItModel.xcdatamodeld;
+			currentVersion = B3B4BE191E1D68E4000D1AF0 /* GoFindItModel.xcdatamodel */;
+			name = GoFindItModel.xcdatamodeld;
+			path = ../GoFindItModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
