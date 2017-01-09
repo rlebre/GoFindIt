@@ -148,7 +148,30 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     
     @IBAction func qrScanCompleted(segue: UIStoryboardSegue) {
         if let qrScanner = segue.source as? QRScannerController {
-            print(qrScanner)
+            print((event?.beaconList)!)
+            
+            for beacon in (event?.beaconList)! {
+                let beaconData = (beacon.characters.split{$0 == "="}.map(String.init))
+                if beaconData[0] == qrScanner.qr {
+                    event?.completedBeacons.append(beacon)
+                    labelComBeacons.text = "\((event?.completedBeacons.count)!)"
+                    labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
+                    
+                    if (event?.beaconList.count)! - (event?.completedBeacons.count)! <= 0 {
+                        let date = Date()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd"
+
+                        timer.fire()
+                        
+                        event?.completedDate = formatter.string(from: date)
+
+                        self.performSegue(withIdentifier: "stopEventRunning", sender: self)
+                    }
+                    
+                    break
+                }
+            }
         }
     }
     
