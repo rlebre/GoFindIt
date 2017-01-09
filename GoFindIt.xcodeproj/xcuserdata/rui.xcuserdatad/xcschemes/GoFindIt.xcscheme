@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B3A63CD11E0945840048537E"
-               BuildableName = "RatingsTest.app"
-               BlueprintName = "RatingsTest"
-               ReferencedContainer = "container:RatingsTest.xcodeproj">
+               BuildableName = "GoFindIt.app"
+               BlueprintName = "GoFindIt"
+               ReferencedContainer = "container:GoFindIt.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3A63CD11E0945840048537E"
-            BuildableName = "RatingsTest.app"
-            BlueprintName = "RatingsTest"
-            ReferencedContainer = "container:RatingsTest.xcodeproj">
+            BuildableName = "GoFindIt.app"
+            BlueprintName = "GoFindIt"
+            ReferencedContainer = "container:GoFindIt.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3A63CD11E0945840048537E"
-            BuildableName = "RatingsTest.app"
-            BlueprintName = "RatingsTest"
-            ReferencedContainer = "container:RatingsTest.xcodeproj">
+            BuildableName = "GoFindIt.app"
+            BlueprintName = "GoFindIt"
+            ReferencedContainer = "container:GoFindIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B3A63CD11E0945840048537E"
-            BuildableName = "RatingsTest.app"
-            BlueprintName = "RatingsTest"
-            ReferencedContainer = "container:RatingsTest.xcodeproj">
+            BuildableName = "GoFindIt.app"
+            BlueprintName = "GoFindIt"
+            ReferencedContainer = "container:GoFindIt.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

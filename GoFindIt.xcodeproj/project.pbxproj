@@ -39,13 +39,13 @@
 		B343EAB31E2271A900083F88 /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 		B34627F21E22747D007D308C /* PhotoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
 		B3836D491E1C4FED00C5F524 /* RegisterBeaconsWirelessTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsWirelessTableViewController.swift; sourceTree = "<group>"; };
-		B3A63CD21E0945840048537E /* RatingsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RatingsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3A63CD21E0945840048537E /* GoFindIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoFindIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B3A63CD51E0945840048537E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B3A63CD71E0945840048537E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B3A63CDA1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B3A63CDC1E0945840048537E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B3A63CDF1E0945840048537E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B3A63CE11E0945840048537E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = /Users/rui/Documents/CM/RatingsTest/RatingsTest/Info.plist; sourceTree = "<absolute>"; };
 		B3B4BE191E1D68E4000D1AF0 /* goFindItModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = goFindItModel.xcdatamodel; sourceTree = "<group>"; };
 		B3B4BE1C1E1D6907000D1AF0 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		B3E7848E1E13D8F300FA3608 /* EventDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 		B3A63CC91E0945840048537E = {
 			isa = PBXGroup;
 			children = (
-				B3A63CD41E0945840048537E /* RatingsTest */,
+				B3A63CD41E0945840048537E /* GoFindIt */,
 				B3A63CD31E0945840048537E /* Products */,
 				B3B4BE1B1E1D6906000D1AF0 /* Frameworks */,
 			);
@@ -82,12 +82,12 @@
 		B3A63CD31E0945840048537E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B3A63CD21E0945840048537E /* RatingsTest.app */,
+				B3A63CD21E0945840048537E /* GoFindIt.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B3A63CD41E0945840048537E /* RatingsTest */ = {
+		B3A63CD41E0945840048537E /* GoFindIt */ = {
 			isa = PBXGroup;
 			children = (
 				B3A63CD71E0945840048537E /* ViewController.swift */,
@@ -113,6 +113,7 @@
 				B3A63CE11E0945840048537E /* Info.plist */,
 				B3B4BE181E1D68E4000D1AF0 /* goFindItModel.xcdatamodeld */,
 			);
+			name = GoFindIt;
 			path = RatingsTest;
 			sourceTree = "<group>";
 		};
@@ -127,9 +128,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B3A63CD11E0945840048537E /* RatingsTest */ = {
+		B3A63CD11E0945840048537E /* GoFindIt */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B3A63CE41E0945840048537E /* Build configuration list for PBXNativeTarget "RatingsTest" */;
+			buildConfigurationList = B3A63CE41E0945840048537E /* Build configuration list for PBXNativeTarget "GoFindIt" */;
 			buildPhases = (
 				B3A63CCE1E0945840048537E /* Sources */,
 				B3A63CCF1E0945840048537E /* Frameworks */,
@@ -139,9 +140,9 @@
 			);
 			dependencies = (
 			);
-			name = RatingsTest;
+			name = GoFindIt;
 			productName = RatingsTest;
-			productReference = B3A63CD21E0945840048537E /* RatingsTest.app */;
+			productReference = B3A63CD21E0945840048537E /* GoFindIt.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -161,7 +162,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B3A63CCD1E0945840048537E /* Build configuration list for PBXProject "RatingsTest" */;
+			buildConfigurationList = B3A63CCD1E0945840048537E /* Build configuration list for PBXProject "GoFindIt" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -174,7 +175,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B3A63CD11E0945840048537E /* RatingsTest */,
+				B3A63CD11E0945840048537E /* GoFindIt */,
 			);
 		};
 /* End PBXProject section */
@@ -338,7 +339,7 @@
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
 				INFOPLIST_FILE = RatingsTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.RatingsTest;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -351,7 +352,7 @@
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
 				INFOPLIST_FILE = RatingsTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.RatingsTest;
+				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -360,7 +361,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B3A63CCD1E0945840048537E /* Build configuration list for PBXProject "RatingsTest" */ = {
+		B3A63CCD1E0945840048537E /* Build configuration list for PBXProject "GoFindIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3A63CE21E0945840048537E /* Debug */,
@@ -369,7 +370,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B3A63CE41E0945840048537E /* Build configuration list for PBXNativeTarget "RatingsTest" */ = {
+		B3A63CE41E0945840048537E /* Build configuration list for PBXNativeTarget "GoFindIt" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B3A63CE51E0945840048537E /* Debug */,
