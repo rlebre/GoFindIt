@@ -26,7 +26,24 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     let image = UIImagePickerController()
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
-        present(image, animated: true, completion: nil)
+        //prevent camera crash
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            present(image, animated: true, completion: nil)
+        } else {
+            let alertVC = UIAlertController(
+                title: "No Camera",
+                message: "Sorry, this device has no camera",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "OK",
+                style:.default,
+                handler: nil)
+            alertVC.addAction(okAction)
+            present(
+                alertVC,
+                animated: true,
+                completion: nil)
+        }
     }
     
     var manager = CLLocationManager()
@@ -43,6 +60,8 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         image.delegate = self
         image.sourceType = UIImagePickerControllerSourceType.camera
         image.allowsEditing = false
+        image.cameraCaptureMode = .photo
+        image.modalPresentationStyle = .fullScreen
         
         manager = CLLocationManager()
         manager.delegate = self
