@@ -137,7 +137,6 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         let fileManager = FileManager.default
         let imageUUID = "IMG_" + NSUUID().uuidString
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent((event?.id)! + "/" + imageUUID)
-        print(paths)
         let imageData = UIImageJPEGRepresentation(image, 0.5)
         fileManager.createFile(atPath: paths as String, contents: imageData, attributes: nil)
         self.event?.photosReferences.append(imageUUID + "=" + "\(self.currentLatitude),\(self.currentLongitude)")

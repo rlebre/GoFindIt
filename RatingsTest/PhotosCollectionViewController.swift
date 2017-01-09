@@ -43,7 +43,7 @@ class PhotosCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PhotoCell", for: indexPath) as! PhotoCell
     
         let reference = images[indexPath.row].characters.split{$0 == "="}.map(String.init)[0]
-        print(images[indexPath.row].characters.split{$0 == "="}.map(String.init)[1])
+        //print(images[indexPath.row].characters.split{$0 == "="}.map(String.init)[1])
         cell.photo.image = getImage(imageName: reference)
     
         return cell
@@ -51,7 +51,7 @@ class PhotosCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         //lalalala
-        
+        print(images[indexPath.row])
     }
     
     
@@ -65,7 +65,6 @@ class PhotosCollectionViewController: UICollectionViewController {
     func getImage(imageName: String) -> UIImage {
         let fileManager = FileManager.default
         let imagePAth = (self.getDirectoryPath() as NSString).appendingPathComponent(eventId + "/" + imageName)
-        print(imagePAth)
         if fileManager.fileExists(atPath: imagePAth){
             return UIImage(contentsOfFile: imagePAth)!
         }else{
@@ -74,4 +73,13 @@ class PhotosCollectionViewController: UICollectionViewController {
         
         return UIImage()
     }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToPhotoMap" {
+            let dest = (segue.destination as! PhotoMapViewController)
+            dest.imageList = images
+        }
+    }
+
 }

@@ -186,7 +186,9 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             let dest = temp.topViewController as! LetsFindItViewController
             dest.event = event
         }else if segue.identifier == "goToShowPictures" {
-            let dest = segue.destination as! PhotosCollectionViewController
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! PhotosCollectionViewController
+            //let dest = segue.destination as! PhotosCollectionViewController
             dest.images = (event?.photosReferences)!
             dest.eventId = (event?.id)!
         }
@@ -203,6 +205,16 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
                 wasEditted=true
                 event?.beaconList=registerBeaconsViewController.beacons
                 beaconsList.reloadData()
+            }
+        }
+    }
+    
+    @IBAction func savePhotoReferences(segue:UIStoryboardSegue) {
+        if let photosCollectionViewController = segue.source as? PhotosCollectionViewController {
+            
+            if photosCollectionViewController.images.count != event?.photosReferences.count {
+                wasEditted = true
+                event?.photosReferences = photosCollectionViewController.images
             }
         }
     }
