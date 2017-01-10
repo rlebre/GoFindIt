@@ -7,16 +7,12 @@
 //
 
 import UIKit
-import CoreLocation
+import KontaktSDK
 
-class RegisterBeaconsWirelessTableViewController: UITableViewController, CLLocationManagerDelegate {
+class RegisterBeaconsWirelessTableViewController: UITableViewController, KTKEddystoneManagerDelegate {
     
-    var foundBeacons: [CLBeacon] = []
+    var foundBeacons: [String] = []
     var selectedUIDs: [String] = []
-    
-    let locationManager = CLLocationManager()
-    //let region = CLBeaconRegion(proximityUUID: NSUUID(uuidString: "f7826da6-bc5b71e0-893e656d-336b7a59") as! UUID, identifier: "Beacons")
-    let region = CLBeaconRegion(proximityUUID: NSUUID(uuidString: "9e4c5a69-6705-47c1-9564-471c99459331") as! UUID, identifier: "Beacons")
     
     @IBOutlet var uuidTableView: UITableView!
    
@@ -24,24 +20,14 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, CLLocat
         uuidTableView.reloadData()
     }
     
+    var eddystoneManager: KTKEddystoneManager!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.delegate = self
-        
-        if CLLocationManager.authorizationStatus() != CLAuthorizationStatus.authorizedWhenInUse {
-            locationManager.requestWhenInUseAuthorization()
-        }
-        
-        locationManager.startRangingBeacons(in: region)
+        eddystoneManager = KTKEddystoneManager(delegate: self)
+        eddystoneManager.startEddystoneDiscovery(in: nil)
     }
-
-    func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        self.foundBeacons = beacons
-        print(beacons)
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -52,7 +38,7 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, CLLocat
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = String(describing: foundBeacons[indexPath.row].major) + "/" + String(describing: foundBeacons[indexPath.row].minor);
+        cell.textLabel?.text = String(describing: foundBeacons[indexPath.row])
         return cell
     }
 
@@ -61,10 +47,25 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, CLLocat
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedUIDs.append(String(describing: foundBeacons[indexPath.row].major) + "/" + String(describing: foundBeacons[indexPath.row].minor))
+        selectedUIDs.append(String(describing: foundBeacons[indexPath.row]))
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectedUIDs = selectedUIDs.filter{$0 != String(describing: foundBeacons[indexPath.row].major) + "/" + String(describing: foundBeacons[indexPath.row].minor)}
+        selectedUIDs = selectedUIDs.filter{$0 != String(describing: foundBeacons[indexPath.row])}
+    }
+    
+    func eddystoneManager(_ manager: KTKEddystoneManager, didDiscover eddystones: Set<KTKEddystone>, in region: KTKEddystoneRegion?) {
+        foundBeacons = []
+        for eddystone in eddystones {
+            //print((eddystone.eddystoneUID?.instanceID)!)
+            foundBeacons.append((eddystone.eddystoneUID?.instanceID)!)
+        }
+        tableView.reloadData()
+    }
+    
+    func eddystoneManager(_ manager: KTKEddystoneManager, didUpdate eddystone: KTKEddystone, with frameType: KTKEddystoneFrameType) {
+        //print((eddystone.eddystoneUID?.instanceID)!)
     }
 }
+
+

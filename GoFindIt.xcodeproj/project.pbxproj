@@ -27,9 +27,25 @@
 		B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35D1E0F0E7900033242 /* Event.swift */; };
 		B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3631E0F382E00033242 /* EventCell.swift */; };
 		B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3671E0F418C00033242 /* AddEventViewController.swift */; };
+		B3F2CF901E246B6F00584C25 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */; };
+		B3F2CF911E246B6F00584C25 /* KontaktSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */; };
 		B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B3E9B5561E246AA5005B1AC5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B3F2CF911E246B6F00584C25 /* KontaktSDK.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B310F69A1E1FBF6200089CDB /* LetsFindItViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetsFindItViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +70,7 @@
 		B3EEE35D1E0F0E7900033242 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		B3EEE3631E0F382E00033242 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		B3EEE3671E0F418C00033242 /* AddEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventViewController.swift; sourceTree = "<group>"; };
+		B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KontaktSDK.framework; sourceTree = "<group>"; };
 		B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterBeaconsTableViewController.swift; sourceTree = "<group>"; };
 		B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3F2CF901E246B6F00584C25 /* KontaktSDK.framework in Frameworks */,
 				B3B4BE1D1E1D6907000D1AF0 /* CoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -73,6 +91,7 @@
 		B3A63CC91E0945840048537E = {
 			isa = PBXGroup;
 			children = (
+				B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */,
 				B3A63CD41E0945840048537E /* GoFindIt */,
 				B3A63CD31E0945840048537E /* Products */,
 				B3B4BE1B1E1D6906000D1AF0 /* Frameworks */,
@@ -131,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B3A63CE41E0945840048537E /* Build configuration list for PBXNativeTarget "GoFindIt" */;
 			buildPhases = (
+				B3E9B5531E246A12005B1AC5 /* ShellScript */,
 				B3A63CCE1E0945840048537E /* Sources */,
 				B3A63CCF1E0945840048537E /* Frameworks */,
 				B3A63CD01E0945840048537E /* Resources */,
+				B3E9B5561E246AA5005B1AC5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -191,6 +212,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B3E9B5531E246A12005B1AC5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/KontaktSDK.framework/strip-frameworks.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B3A63CCE1E0945840048537E /* Sources */ = {
@@ -336,6 +373,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GoFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
@@ -349,6 +390,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = PHQ37KZRYM;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = GoFindIt/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pt.ruilebre.GoFindIt;
