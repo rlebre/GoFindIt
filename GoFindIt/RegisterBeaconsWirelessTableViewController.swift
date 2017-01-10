@@ -11,6 +11,7 @@ import KontaktSDK
 
 class RegisterBeaconsWirelessTableViewController: UITableViewController, KTKEddystoneManagerDelegate {
     
+    var eddystoneManager: KTKEddystoneManager!
     var foundBeacons: [String] = []
     var selectedUIDs: [String] = []
     
@@ -19,8 +20,6 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, KTKEddy
     @IBAction func searchButtonPressed(_ sender: Any) {
         uuidTableView.reloadData()
     }
-    
-    var eddystoneManager: KTKEddystoneManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,16 +54,28 @@ class RegisterBeaconsWirelessTableViewController: UITableViewController, KTKEddy
     }
     
     func eddystoneManager(_ manager: KTKEddystoneManager, didDiscover eddystones: Set<KTKEddystone>, in region: KTKEddystoneRegion?) {
-        foundBeacons = []
+        //foundBeacons = []
         for eddystone in eddystones {
-            //print((eddystone.eddystoneUID?.instanceID)!)
-            foundBeacons.append((eddystone.eddystoneUID?.instanceID)!)
+            print((eddystone.eddystoneUID?.instanceID)!)
+            if !foundBeacons.contains((eddystone.eddystoneUID?.instanceID)!) {
+                foundBeacons.append((eddystone.eddystoneUID?.instanceID)!)
+            }
+            tableView.reloadData()
         }
-        tableView.reloadData()
     }
     
     func eddystoneManager(_ manager: KTKEddystoneManager, didUpdate eddystone: KTKEddystone, with frameType: KTKEddystoneFrameType) {
         //print((eddystone.eddystoneUID?.instanceID)!)
+        print((eddystone.eddystoneUID?.instanceID)!)
+        if !foundBeacons.contains((eddystone.eddystoneUID?.instanceID)!) {
+            foundBeacons.append((eddystone.eddystoneUID?.instanceID)!)
+            tableView.reloadData()
+        }
+    
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        eddystoneManager.stopEddystoneDiscovery(in: nil)
     }
 }
 

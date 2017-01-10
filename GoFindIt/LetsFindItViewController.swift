@@ -9,8 +9,9 @@
 import UIKit
 import MapKit
 import CoreLocation
+import KontaktSDK
 
-class LetsFindItViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate {
+class LetsFindItViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate, MKMapViewDelegate, CLLocationManagerDelegate, UIGestureRecognizerDelegate, KTKEddystoneManagerDelegate {
 
     var event: Event?
     
@@ -24,6 +25,8 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     var currentLongitude:CLLocationDegrees = 0.0
     
     let image = UIImagePickerController()
+    
+    var eddystoneManager: KTKEddystoneManager!
     
     @IBAction func cameraButtonPressed(_ sender: Any) {
         //prevent camera crash
@@ -96,6 +99,9 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
         
         labelComBeacons.text = "\((event?.completedBeacons.count)!)"
         labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
+        
+        eddystoneManager = KTKEddystoneManager(delegate: self)
+        eddystoneManager.startEddystoneDiscovery(in: nil)
     }
     
     override func didReceiveMemoryWarning() {
@@ -148,11 +154,11 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
     
     @IBAction func qrScanCompleted(segue: UIStoryboardSegue) {
         if let qrScanner = segue.source as? QRScannerController {
-            print((event?.beaconList)!)
+            //print((event?.beaconList)!)
             
             for beacon in (event?.beaconList)! {
                 let beaconData = (beacon.characters.split{$0 == "="}.map(String.init))
-                if beaconData[0] == qrScanner.qr {
+                if beaconData[0] == qrScanner.qr && !(event?.completedBeacons)!.contains(beacon) {
                     event?.completedBeacons.append(beacon)
                     labelComBeacons.text = "\((event?.completedBeacons.count)!)"
                     labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
@@ -174,6 +180,34 @@ class LetsFindItViewController: UIViewController, UINavigationControllerDelegate
             }
         }
     }
+    
+    func eddystoneManager(_ manager: KTKEddystoneManager, didDiscover eddystones: Set<KTKEddystone>, in region: KTKEddystoneRegion?) {
+        for eddystone in eddystones {
+            for beacon in (event?.beaconList)! {
+                let beaconData = (beacon.characters.split{$0 == "="}.map(String.init))
+                if beaconData[0] == (eddystone.eddystoneUID?.instanceID)! && !(event?.completedBeacons)!.contains(beacon) {
+                    event?.completedBeacons.append(beacon)
+                    labelComBeacons.text = "\((event?.completedBeacons.count)!)"
+                    labelRemainBeacons.text = "\((event?.beaconList.count)! - (event?.completedBeacons.count)!)"
+                    
+                    if (event?.beaconList.count)! - (event?.completedBeacons.count)! <= 0 {
+                        let date = Date()
+                        let formatter = DateFormatter()
+                        formatter.dateFormat = "yyyy-MM-dd"
+                        
+                        timer.fire()
+                        
+                        event?.completedDate = formatter.string(from: date)
+                        
+                        self.performSegue(withIdentifier: "stopEventRunning", sender: self)
+                    }
+                    
+                    break
+                }
+            }
+        }
+    }
+
     
     func saveImageDocumentDirectory(image: UIImage){
         let fileManager = FileManager.default
