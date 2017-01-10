@@ -34,9 +34,16 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     let image = UIImagePickerController()
     
     @IBAction func buttonStartPressed(_ sender: Any) {
-        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 {
+        let sorted1 = (event?.beaconList)!.sorted()
+        let sorted2 = (event?.completedBeacons)!.sorted()
+        print(sorted1)
+        print(sorted2)
+        //        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
+        if sorted1 == sorted2 {
+            
             let alert = UIAlertController(title: "Info", message: "You have already completed the event.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+                 self.buttonEditBeaconList.isEnabled = false
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
@@ -260,18 +267,22 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         let paths = (NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0] as NSString).appendingPathComponent(eventID)
         if !fileManager.fileExists(atPath: paths){
             try! fileManager.createDirectory(atPath: paths, withIntermediateDirectories: true, attributes: nil)
-        }else{
-            print("Already dictionary created.")
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
+        let sorted1 = (event?.beaconList)!.sorted()
+        let sorted2 = (event?.completedBeacons)!.sorted()
+        print(sorted1)
+        print(sorted2)
+//        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
+        if sorted1 == sorted2 && firstTime {
             let alert = UIAlertController(title: "Congratulations!", message: "You have completed event. You found it all!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
  
             }))
  
+            buttonEditBeaconList.isEnabled = false
             self.present(alert, animated: true, completion: nil)
             firstTime = false
         }

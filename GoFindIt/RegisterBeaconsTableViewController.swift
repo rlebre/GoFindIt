@@ -114,7 +114,9 @@ class RegisterBeaconsTableViewController: UITableViewController {
         
         if let wirelessScanner = segue.source as? RegisterBeaconsWirelessTableViewController {
             for uid in wirelessScanner.selectedUIDs {
-                beacons.append(uid)
+                if !beacons.contains(uid) {
+                    beacons.append(uid)
+                }
             }
             
             tableVIew.reloadData()
