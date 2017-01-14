@@ -91,6 +91,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mainTableView" destination="lsz-2N-vIq" id="TUQ-36-PkX"/>
                         <segue destination="E8c-Mh-4nS" kind="presentation" identifier="goToEventDetail" id="E13-nj-ezk"/>
                     </connections>
                 </tableViewController>
