@@ -27,7 +27,7 @@
 		B3EEE35E1E0F0E7900033242 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE35D1E0F0E7900033242 /* Event.swift */; };
 		B3EEE3641E0F382E00033242 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3631E0F382E00033242 /* EventCell.swift */; };
 		B3EEE3681E0F418C00033242 /* AddEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EEE3671E0F418C00033242 /* AddEventViewController.swift */; };
-		B3F2CF901E246B6F00584C25 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */; };
+		B3F2CF901E246B6F00584C25 /* KontaktSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		B3F2CF911E246B6F00584C25 /* KontaktSDK.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3F2CF8F1E246B6F00584C25 /* KontaktSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B3FC416A1E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC41691E119EDD00CC6BEF /* RegisterBeaconsTableViewController.swift */; };
 		B3FC416C1E12D7C600CC6BEF /* QRScannerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3FC416B1E12D7C600CC6BEF /* QRScannerController.swift */; };
