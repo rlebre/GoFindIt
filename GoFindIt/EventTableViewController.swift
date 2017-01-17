@@ -44,6 +44,11 @@ class EventTableViewController: UITableViewController {
         let event = events[indexPath.row] as Event
         cell.event = event
         
+        if events[indexPath.row].completedDate != "" {
+            cell.backgroundColor = UIColor(red: 135/255, green: 211/255, blue: 124/255, alpha: 1);
+            //let swiftColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+        }
+        
         return cell
     }
     

@@ -36,14 +36,20 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     @IBAction func buttonStartPressed(_ sender: Any) {
         let sorted1 = (event?.beaconList)!.sorted()
         let sorted2 = (event?.completedBeacons)!.sorted()
-        print(sorted1)
-        print(sorted2)
+        //print(sorted1)
+        //print(sorted2)
         //        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
-        if sorted1 == sorted2 {
+        if sorted1 == sorted2 && event?.completedDate != ""{
             
             let alert = UIAlertController(title: "Info", message: "You have already completed the event.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
                  self.buttonEditBeaconList.isEnabled = false
+            }))
+            self.present(alert, animated: true, completion: nil)
+        } else if sorted1.count == 0 && sorted2.count == 0 {
+            let alert = UIAlertController(title: "Info", message: "The event has no beacons associated.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
+                self.buttonEditBeaconList.isEnabled = false
             }))
             self.present(alert, animated: true, completion: nil)
         } else {
@@ -78,7 +84,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         
         createDirectory(eventID: (event?.id)!)
         
-        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 {
+        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && event?.completedDate != ""{
             buttonEditBeaconList.isEnabled = false
         }
     }
@@ -276,7 +282,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         print(sorted1)
         print(sorted2)
 //        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
-        if sorted1 == sorted2 && firstTime {
+        if sorted1 == sorted2 && firstTime && event?.completedDate != "" {
             let alert = UIAlertController(title: "Congratulations!", message: "You have completed event. You found it all!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
  
