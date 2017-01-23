@@ -14,6 +14,7 @@ class AddEventViewController: UITableViewController {
     var event: Event?
     var addedBeacons:[String] = []
     var addedLocation:String = ""
+    var caller = ""
     
     @IBOutlet weak var labelLocation: UITableViewCell!
     
@@ -67,7 +68,7 @@ class AddEventViewController: UITableViewController {
     @IBAction func saveLocation(segue:UIStoryboardSegue) {
         if let pickLocationViewController = segue.source as? PickLocationViewController {
             if !pickLocationViewController.currentCity.isEmpty {
-                self.addedLocation = pickLocationViewController.currentCity
+                self.addedLocation = pickLocationViewController.currentCoordinates + ":" + pickLocationViewController.currentCity
                 labelLocation.detailTextLabel?.text = pickLocationViewController.currentCity
             } else {
                 self.addedLocation = pickLocationViewController.currentCoordinates

@@ -15,6 +15,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     var event: Event?
     var wasEditted = false
     var indexOnTable: Int?
+    var caller = ""
     
     @IBOutlet weak var label_name: UILabel!
     @IBOutlet weak var label_location: UILabel!
@@ -30,8 +31,27 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     @IBOutlet weak var buttonEditBeaconList: UIButton!
     @IBOutlet weak var beaconsList: UITableView!
     
+    @IBOutlet weak var buttonStart: UIButton!
     
     let image = UIImagePickerController()
+    
+    
+    @IBAction func buttonDonePressed(_ sender: Any) {
+        if caller == "EventMap" {
+            performSegue(withIdentifier: "saveEventDetailMap", sender: self)
+        }else if caller == "EventTable" {
+            performSegue(withIdentifier: "saveEventDetailTable", sender: self)
+        }
+    }
+    
+    
+    @IBAction func buttonCancelPressed(_ sender: Any) {
+        if caller == "EventMap" {
+            performSegue(withIdentifier: "cancelToEventMap", sender: self)
+        }else if caller == "EventTable" {
+            performSegue(withIdentifier: "cancelToEventTable", sender: self)
+        }
+    }
     
     @IBAction func buttonStartPressed(_ sender: Any) {
         let sorted1 = (event?.beaconList)!.sorted()
@@ -40,7 +60,6 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         //print(sorted2)
         //        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
         if sorted1 == sorted2 && event?.completedDate != ""{
-            
             let alert = UIAlertController(title: "Info", message: "You have already completed the event.", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
                  self.buttonEditBeaconList.isEnabled = false
@@ -56,6 +75,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             performSegue(withIdentifier: "goToStartEvent", sender: self)
         }
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +84,13 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         beaconsList.dataSource = self
         
         label_name.text = event?.name
-        label_location.text = event?.location
+        let locationTemp = (event?.location)?.characters.split{$0 == "!"}.map(String.init)
+        if locationTemp?.count == 2 {
+            label_location.text = locationTemp?[1]
+        }else{
+            label_location.text = locationTemp?[0]
+        }
+        
         label_creation_date.text = event?.addedDate
         label_comp_date.text = event?.completedBeacons.count == event?.beaconList.count ? event?.completedDate : "Go Find It!"
         label_comp_beacons.text = "\(event!.completedBeacons.count)"
@@ -86,7 +112,9 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
         
         if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && event?.completedDate != ""{
             buttonEditBeaconList.isEnabled = false
+            buttonStart.isEnabled = false
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -219,6 +247,9 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             //let dest = segue.destination as! PhotosCollectionViewController
             dest.images = (event?.photosReferences)!
             dest.eventId = (event?.id)!
+        }else if segue.identifier == "goToBeaconsMap" {
+            let dest = (segue.destination as! BeaconMapViewController)
+            dest.event = self.event
         }
     }
     
@@ -279,9 +310,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
     override func viewDidAppear(_ animated: Bool) {
         let sorted1 = (event?.beaconList)!.sorted()
         let sorted2 = (event?.completedBeacons)!.sorted()
-        print(sorted1)
-        print(sorted2)
-//        if (event?.beaconList)!.count - (event?.completedBeacons)!.count <= 0 && firstTime {
+        
         if sorted1 == sorted2 && firstTime && event?.completedDate != "" {
             let alert = UIAlertController(title: "Congratulations!", message: "You have completed event. You found it all!", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [] (_) in
@@ -291,6 +320,7 @@ class EventDetailViewController: UIViewController, UINavigationControllerDelegat
             buttonEditBeaconList.isEnabled = false
             self.present(alert, animated: true, completion: nil)
             firstTime = false
+            
         }
     }
 }

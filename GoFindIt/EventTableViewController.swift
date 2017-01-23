@@ -21,14 +21,19 @@ class EventTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        events = fetchData()
-        mainTableView.reloadData()
+        //events = fetchData()
+        //mainTableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        events = fetchData()
+        mainTableView.reloadData()
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -47,6 +52,8 @@ class EventTableViewController: UITableViewController {
         if events[indexPath.row].completedDate != "" {
             cell.backgroundColor = UIColor(red: 135/255, green: 211/255, blue: 124/255, alpha: 0.3);
             //let swiftColor = UIColor(red: 1, green: 165/255, blue: 0, alpha: 1)
+        }else{
+            cell.backgroundColor = UIColor.white
         }
         
         return cell
@@ -125,6 +132,13 @@ class EventTableViewController: UITableViewController {
             let dest = temp.topViewController as! EventDetailViewController
             dest.event = sender as? Event
             dest.indexOnTable = self.selectedRow
+            dest.caller = "EventTable"
+        }
+        
+        if segue.identifier == "goToAddEventFromTable" {
+            let temp = (segue.destination as! UINavigationController)
+            let dest = temp.topViewController as! AddEventViewController
+            dest.caller = "EventTable"
         }
     }
     
