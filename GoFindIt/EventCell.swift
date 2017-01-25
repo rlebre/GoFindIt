@@ -31,7 +31,7 @@ class EventCell: UITableViewCell {
                 if event.addedDate == formatter.string(from: date) {
                     statusImageView.image = UIImage(named: "NewEvent")
                 }else{
-                    statusImageView.image = UIImage(named: "UncheckedEvent")
+                   // statusImageView.image = UIImage(named: "UncheckedEvent")
                 }
             } else {
                 statusImageView.image = UIImage(named: "CheckedEvent")

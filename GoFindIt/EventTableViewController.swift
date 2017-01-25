@@ -50,7 +50,7 @@ class EventTableViewController: UITableViewController {
         cell.event = event
         
         if indexPath.row % 2 == 0 {
-            cell.backgroundColor = UIColor(red: 186/255, green: 212/255, blue: 255/255, alpha: 0.3);
+            cell.backgroundColor = UIColor(red: 186/255, green: 212/255, blue: 255/255, alpha: 0.1);
         }else{
             cell.backgroundColor = UIColor.white
         }
